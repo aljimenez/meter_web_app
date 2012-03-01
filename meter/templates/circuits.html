@@ -1,0 +1,32 @@
+<script type="text/template" id="tpl-circuits-table-head">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>IP Address</th>
+			<th>Status</th>
+			<th>Pricing Model</th>
+			<th>Credit Remaining</th>
+			<th>Load</th>
+			<th>Power Factor</th>
+			<th>Energy Used Today</th>
+			<th>Total Energy Used</th>
+		</tr>
+	</thead>
+</script>
+
+<script type="text/template" id="tpl-circuits-table-body-row">
+	<td nowrap>
+		<img src="images/<%= image %>.gif" style="margin-left:<%= shift %>px;cursor:<%= cursor %>">
+		<span style="margin-left:3px"><%= name %></span>
+	</td>
+	<td><%= type %></td>
+	<td><%= address %></td>
+	<td><%= status %></td>
+	<td><%= pricingModel %></td>
+	<td><%= credit %></td>
+	<td><%= load %></td>
+	<td><%= powerFactor %></td>
+	<td><%= energyToday %></td>
+	<td><%= energyTotal %></td>
+</script>

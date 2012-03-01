@@ -1,0 +1,137 @@
+[
+    {
+        "meterId": "Root",
+        "name": "Root",
+        "type": "root",
+        "address": "192.168.1.100",
+        "pricingModel": "varies",
+        "credit": 8000,
+        "load": 27,
+        "powerFactor": 21,
+        "energyToday": 20000,
+        "energyTotal": 900000,
+        "children": [
+            {
+                "meterId": "A",
+                "name": "A",
+                "type": "terminal",
+                "address": "192.168.1.110",
+                "pricingModel": "model1",
+                "credit": 200,
+                "load": 27,
+                "powerFactor": 11,
+                "energyToday": 22400,
+                "energyTotal": 8730,
+                "children": []
+            },
+            {
+                "meterId": "B",
+                "name": "B",
+                "type": "main",
+                "address": "192.168.1.120",
+                "pricingModel": "varies",
+                "credit": 600,
+                "load": 27,
+                "powerFactor": 41,
+                "energyToday": 9200,
+                "energyTotal": 5000,
+                "children": [
+                	{
+                        "meterId": "R",
+                        "name": "R",
+                        "type": "terminal",
+                        "address": "192.168.1.131",
+                        "pricingModel": "model5",
+                        "credit": 334,
+                        "load": 23,
+                        "powerFactor": 11,
+                        "energyToday": 6350,
+                        "energyTotal": 1474,
+                        "children": []
+                	}
+                ]
+            },
+            {
+                "meterId": "D",
+                "name": "D",
+                "type": "terminal",
+                "address": "192.168.1.130",
+                "pricingModel": "model2",
+                "credit": 8000,
+                "load": 23,
+                "powerFactor": 43,
+                "energyToday": 3250,
+                "energyTotal": 3520,
+                "children": []
+            },
+            {
+                "meterId": "E",
+                "name": "E",
+                "type": "main",
+                "address": "192.168.1.130",
+                "pricingModel": "varies",
+                "credit": 8000,
+                "load": 63,
+                "powerFactor": 61,
+                "energyToday": 2200,
+                "energyTotal": 9450,
+                "children": [
+                    {
+                        "meterId": "F",
+                        "name": "F",
+                        "type": "intermediate",
+                        "address": "192.168.1.131",
+                        "pricingModel": "model5",
+                        "credit": 8320,
+                        "load": 27,
+                        "powerFactor": 21,
+                        "energyToday": 1340,
+                        "energyTotal": 943,
+                        "children": [
+                            {
+                                "meterId": "G",
+                                "name": "G",
+                                "type": "intermediate",
+                                "address": "192.168.1.132",
+                                "pricingModel": "model2",
+                                "credit": 3200,
+                                "load": 98,
+                                "powerFactor": 21,
+                                "energyToday": 240,
+                                "energyTotal": 500,
+                                "children": [
+                                    {
+                                        "meterId": "H",
+                                        "name": "H",
+                                        "type": "terminal",
+                                        "address": "192.168.1.133",
+                                        "pricingModel": "model1",
+                                        "credit": 1200,
+                                        "load": 64,
+                                        "powerFactor": 11,
+                                        "energyToday": 13000,
+                                        "energyTotal": 8700,
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "meterId": "C",
+                        "name": "C",
+                        "type": "terminal",
+                        "address": "192.168.1.121",
+                        "pricingModel": "model4",
+                        "credit": 100,
+                        "load": 17,
+                        "powerFactor": 21,
+                        "energyToday": 200,
+                        "energyTotal": 60000,
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+]
