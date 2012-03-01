@@ -1,6 +1,6 @@
-var headLinks = {"dashboard": {"title": "Meter Dashboard", "linkName": "Dashboard", "url": ""},
-				 "circuits": {"title": "Circuits", "linkName": "Circuits", "url": "circuits"},
-				 "pricingModels": {"title": "Pricing Models", "linkName": "Pricing Models", "url": "pricing_models"}};
+var headLinks = {"dashboard": {"title": "Meter Dashboard", "linkName": "Dashboard", "url": "", "page": "dashboard"},
+				 "circuits": {"title": "Circuits", "linkName": "Circuits", "url": "circuits", "page": "circuits"},
+				 "pricingModels": {"title": "Pricing Models", "linkName": "Pricing Models", "url": "pricing_models", "page": "pricingModels"}};
 
 function changePage(page)
 {
@@ -9,20 +9,18 @@ function changePage(page)
 	$("#" + page + "_link").addClass("btn-primary");
 }
 
-window.HeadLinkItemView = Backbone.View.extend({
-	tagName: "span",
-	template:_.template($('#headlink').html()),
-	render: function (eventName) {
-		$(this.el).append(this.template(this.model));
-        return this;
-    }
-});
 
 window.HeadLinksView = Backbone.View.extend({
-	
+	initialize: function() {
+		$(this.el).addClass("btn-group span6");
+	},
 	render: function (eventName) {
 		for (var section in headLinks)
-			$(this.el).append(new HeadLinkItemView({model:headLinks[section]}).render().el);
+		{
+			var template = _.template($('#headlink').html());
+			$(this.el).append(template(headLinks[section]));
+		}
+			
         return this;
     }
 });
@@ -35,11 +33,12 @@ var AppRouter = Backbone.Router.extend({
         "circuits":"circuits",
         "pricing_models":"pricingModels",
     },
-
-    dashboard: function () {
-    	changePage("dashboard");
+    initialize: function() {
     	this.headLinksView = new HeadLinksView();
     	$('#headlinks').html(this.headLinksView.render().el);
+    },
+    dashboard: function () {
+    	changePage("dashboard");
     },
     
     circuits: function() {

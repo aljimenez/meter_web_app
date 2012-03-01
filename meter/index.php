@@ -2,8 +2,7 @@
 <html style="background: white">
 <head>
     <title>Meter Administration</title>
-    
-	<link rel="stylesheet" type="text/css" href="css/todos.css" />
+
     <style type="text/css">
     #spec_link {
         position: absolute;
@@ -20,7 +19,9 @@
     }
     </style>
 
-    <link rel="stylesheet/less" type="text/css" href="css/styles.less "/>
+	
+    <link rel="stylesheet/less" type="text/css" href="css/styles.less" />
+    <script type="text/javascript" src="js/lib/less.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="css/jquery.dataTables.css" type="text/css" /> 
     
@@ -32,20 +33,20 @@
 			<p class="span3 pull-right">
 			<div class="clearfix">&nbsp;</div>
         </div>
-        <div class="row">
-			<div class="btn-group span6">
+        <div>
+        	<div class="row">
 				<div id="headlinks"></div>
-	        </div>
-	        <div class="span2 offset4">
-				<table class="table table-bordered">
-					<tbody>
-						<tr>
-							<td>
-								<h4>&nbsp;<small>Meter Id: 123</small></h4>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="span2 offset4">
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+								<td>
+									<h4>&nbsp;<small>Meter Id: 123</small></h4>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
         <div id="inner-wrap">
@@ -66,6 +67,5 @@
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/pricingModels/pricingModels.js"></script>
 	<script type="text/javascript" src="js/circuits/circuits.js"></script>
-	<script type="text/javascript" src="js/lib/less.js"></script>
 </body>
 </html>

@@ -74,6 +74,9 @@ window.CircuitsTableBodyView = Backbone.View.extend({
 
 window.CircuitsTableView = Backbone.View.extend({
 	tagName: "table",
+	initialize: function() {
+		$(this.el).addClass("table table-bordered");
+	},
 	render: function() {
 		$(this.el).append(_.template($("#tpl-circuits-table-head").html()));
 		var circuits = new CircuitCollection();
