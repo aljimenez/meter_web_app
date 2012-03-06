@@ -38,7 +38,7 @@
 			<select name="pricingModel">
 				<option value="varies">Varies</option>
 				<?php
-					$pricingModels = json_decode(file_get_contents("data/pricingModels.json"), true);
+					$pricingModels = json_decode(file_get_contents("data/pricingModels/pricingModels.json"), true);
 					foreach ($pricingModels as $pricingModel)
 						echo("<option value='" . $pricingModel["id"] . "'>" . $pricingModel["name"] . "</option>");
 				?>
