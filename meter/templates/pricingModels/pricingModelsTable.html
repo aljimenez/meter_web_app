@@ -1,0 +1,27 @@
+<script type="text/template" id="tpl-pricing-models-table-head">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Baseline Rate</th>
+			<th>Day Multiplier</th>
+			<th>Energy Threshold</th>
+			<th>Night Multiplier</th>
+			<th>Power Low</th>
+			<th>Power High</th>
+			<th>Time Day Start</th>
+			<th>Time Night Start</th>
+		</tr>
+	</thead>
+</script>
+
+<script type="text/template" id="tpl-pricing-models-table-body-row">
+	<td nowrap><a href="#pricingModels/<%= id %>"><%= name %></a></td>
+	<td><%= baselineRate %></td>
+	<td><%= dayMultiplier %></td>
+	<td><%= energyThreshold %></td>
+	<td><%= nightMultiplier %></td>
+	<td><%= powerLow %></td>
+	<td><%= powerHigh %></td>
+	<td><%= timeDayStart %></td>
+	<td><%= timeNightStart %></td>
+</script>

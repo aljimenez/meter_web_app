@@ -1,0 +1,50 @@
+[
+    {
+    	"id": "model1",
+        "name": "Model 1",
+        "baselineRate": 1,
+        "dayMultiplier": 2,
+        "energyThreshold": 1,
+        "nightMultiplier": 2.5,
+        "powerLow": 10,
+        "powerHigh": 150,
+        "timeDayStart": "06:00:00",
+        "timeNightStart": "18:00:00"
+    },
+    {
+    	"id": "model2",
+        "name": "Model 2",
+        "baselineRate": 2,
+        "dayMultiplier": 2,
+        "energyThreshold": 1,
+        "nightMultiplier": 0.5,
+        "powerLow": 11,
+        "powerHigh": 250,
+        "timeDayStart": "07:00:00",
+        "timeNightStart": "21:00:00"
+    },
+    {
+    	"id": "model3",
+        "name": "Model 3",
+        "baselineRate": 1,
+        "dayMultiplier": 1,
+        "energyThreshold": 1,
+        "nightMultiplier": 2.8,
+        "powerLow": 14,
+        "powerHigh": 250,
+        "timeDayStart": "03:00:00",
+        "timeNightStart": "20:00:00"
+    },
+    {
+    	"id": "model4",
+        "name": "Model 4",
+        "baselineRate": 4,
+        "dayMultiplier": 1,
+        "energyThreshold": 15,
+        "nightMultiplier": 1.5,
+        "powerLow": 20,
+        "powerHigh": 170,
+        "timeDayStart": "07:00:00",
+        "timeNightStart": "15:00:00"
+    }
+]

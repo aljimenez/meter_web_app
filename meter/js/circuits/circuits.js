@@ -1,7 +1,7 @@
-window.Circuit = Backbone.Model.extend();
+/*window.CircuitRow = Backbone.Model.extend();
 
-window.CircuitCollection = Backbone.Collection.extend({
-	model: Circuit,
+window.CircuitRowCollection = Backbone.Collection.extend({
+	model: CircuitRow,
     url: "data/circuits/circuitsTree.json"
 });
 
@@ -79,7 +79,7 @@ window.CircuitsTableView = Backbone.View.extend({
 	},
 	render: function() {
 		$(this.el).append(_.template($("#tpl-circuits-table-head").html()));
-		var circuits = new CircuitCollection();
+		var circuits = new CircuitRowCollection();
 		var self = this;
 		circuits.fetch({
 			success: function() {
@@ -89,4 +89,4 @@ window.CircuitsTableView = Backbone.View.extend({
 		});
 		return this;
 	}
-});
+});*/

@@ -1,6 +1,7 @@
 var headLinks = {"dashboard": {"title": "Meter Dashboard", "linkName": "Dashboard", "url": "", "page": "dashboard"},
 				 "circuits": {"title": "Circuits", "linkName": "Circuits", "url": "circuits", "page": "circuits"},
-				 "pricingModels": {"title": "Pricing Models", "linkName": "Pricing Models", "url": "pricing_models", "page": "pricingModels"}};
+				 "pricingModels": {"title": "Pricing Models", "linkName": "Pricing Models", "url": "pricingModels", "page": "pricingModels"},
+				 "log": {"title": "Log", "linkName": "Log", "url": "log", "page": "log"}};
 
 function changePage(page)
 {
@@ -29,26 +30,44 @@ window.HeadLinksView = Backbone.View.extend({
 var AppRouter = Backbone.Router.extend({
 
     routes:{
-        "":"dashboard",
-        "circuits":"circuits",
-        "pricing_models":"pricingModels",
+        "": "dashboard",
+        "circuits": "circuitsPage",
+        "circuits/:id": "circuit",
+        "pricingModels": "pricingModels",
+        "pricingModels/:id": "pricingModel",
+        "log": "log"
     },
     initialize: function() {
     	this.headLinksView = new HeadLinksView();
     	$('#headlinks').html(this.headLinksView.render().el);
     },
+    
     dashboard: function () {
     	changePage("dashboard");
     },
     
-    circuits: function() {
+    circuitsPage: function() {
     	changePage("circuits");
-    	$('#content').html(new CircuitsTableView().render().el);
+    	$('#content').html(new CircuitsPageView().render().el);
+    },
+    
+    circuit: function(id) {
+    	changePage("circuits");
+    	$('#content').html(new CircuitPageView().render(id).el);
     },
     
     pricingModels: function() {
     	changePage("pricingModels");
-    	$('#content').html(new PricingModelsTableView().render().el);
+    	$('#content').html(new PricingModelsPageView().render().el);
+    },
+    
+    pricingModel: function(id) {
+    	changePage("pricingModels");
+    	$('#content').html(new PricingModelPageView().render(id).el);
+    },
+    
+    log: function() {
+    	changePage("log");
     },
 });
 

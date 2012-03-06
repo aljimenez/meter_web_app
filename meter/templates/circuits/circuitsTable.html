@@ -1,0 +1,55 @@
+<style>
+#circuits-tree-table tbody td img {
+	margin-bottom: -5px;
+}
+
+#circuits-tree-table tbody td {
+	padding: 0px 10px;
+	vertical-align: middle;
+}
+
+#circuits-tree-table tbody td:FIRST-CHILD a {
+	position:relative;
+	top:-4px;
+}
+
+</style>
+
+<script type="text/template" id="tpl-circuits-table-head">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>IP Address</th>
+			<th>Status</th>
+			<th>Pricing Model</th>
+			<th>Credit Remaining</th>
+			<th>Load</th>
+			<th>Power Factor</th>
+			<th>Energy Used Today</th>
+			<th>Total Energy Used</th>
+		</tr>
+	</thead>
+</script>
+
+<script type="text/template" id="tpl-circuits-table-body-row">
+	<td nowrap style="vertical-align:middle;white-space-collapse: discard;">
+		<!--
+		<% _.each(lines, function(line, i) {
+			%>
+			--><img src="img/treeTable/<%= (i < lines.length-1) ? (line == 1 ? 'line' : 'spacer') : (line == 1 ? 'attach' : 'attach_end') %>.png"/><!--
+			<%
+		})%>--><!--
+		--><img name="toggle" src="img/treeTable/<%= toggle %>.png" style="padding-right:3px;cursor:<%= cursor %>"><!--
+		--><a href="#circuits/<%= id%>"><%= name %></a>
+	</td>
+	<td><%= type %></td>
+	<td><%= address %></td>
+	<td><%= status %></td>
+	<td><%= pricingModel %></td>
+	<td><%= credit %></td>
+	<td><%= load %></td>
+	<td><%= powerFactor %></td>
+	<td><%= energyToday %></td>
+	<td><%= energyTotal %></td>
+</script>

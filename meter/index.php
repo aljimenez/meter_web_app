@@ -4,26 +4,61 @@
     <title>Meter Administration</title>
 
     <style type="text/css">
-    #spec_link {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 22px;
-        color: #333;
-        text-decoration: none;
+    body fieldset {
+    	padding: 10px;
+    	border: 2px solid #666;
+    	display: inline;
+    	border-radius: 5px;
     }
     
-    #spec_link:hover {
-        color: #666;
-        text-decoration: underline;
+    body fieldset input, body fieldset select {
+    	padding: 4px;
+    	font-size: 13px;
+    	margin-bottom: 4px;
+    	
+    }
+    
+    body fieldset table td div.input-append, body fieldset table td div.input-prepend{
+    	margin: 0px;
+    }
+    
+    body fieldset legend {
+    	margin-bottom: 0px;
+    	padding: 2px;
+    	width: auto;
+    	border: none;
+    	font-size: 16px;
+    }
+    
+    body .icon-info-sign {
+    	cursor: help;
+    }
+    
+    body input {
+    	width: 150px;
+    	height: 16px;
+    }
+    
+    body select {
+    	width: 160px;
+    }
+    
+    body div.input-append span.add-on, body div.input-prepend span.add-on {
+    	height: 16px;
     }
     </style>
 
-	
+	<script type="text/javascript" src="js/lib/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/lib/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="js/lib/jquery-ui-1.8.18.custom.min.js"></script>
+    <script type="text/javascript" src="js/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="js/lib/backbone-min.js"></script>
+    
     <link rel="stylesheet/less" type="text/css" href="css/styles.less" />
     <script type="text/javascript" src="js/lib/less.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="css/jquery.dataTables.css" type="text/css" /> 
+    <link rel="stylesheet" href="css/jquery.dataTables/jquery.dataTables.css" type="text/css" />
+    <link rel="stylesheet" href="css/jquery.ui/jquery-ui-1.8.18.custom.css" type="text/css" /> 
     
 </head>
 <body>
@@ -56,16 +91,11 @@
 	
 	<!-- Templates -->
 	<?php include("templates/main.html")?>
-	<?php include("templates/pricingModels.html")?>
-	<?php include("templates/circuits.html")?>
+	<?php include("templates/circuits/circuitsPage.php")?>
+	<?php include("templates/pricingModels/pricingModelsPage.php")?>
 	
 	<!-- JavaScript -->
-	<script type="text/javascript" src="js/lib/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="js/lib/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="js/lib/underscore-min.js"></script>
-    <script type="text/javascript" src="js/lib/backbone-min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/pricingModels/pricingModels.js"></script>
-	<script type="text/javascript" src="js/circuits/circuits.js"></script>
+	
 </body>
 </html>
