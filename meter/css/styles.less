@@ -6,4 +6,27 @@ span.l-depth-marker {
   padding-top: 18px;
 }
 
+.cur.e-in, .cur.e-out, .circuits-active, .circuits-total {
+  display: block;
+  border: 1px solid #2a4480;
+  background-color: rgba(103, 158, 210, 0.3);
+  padding: 2px 5px 2px 3px;
+  color: #06266f;
+  border-radius: 3px;
+  box-shadow: rgba(64, 138, 210, 0.3) -2px 2px 4px;
+  width: 60px;
+  margin: 0 auto;
+}
+
+div.col {
+background-color: rgb(103, 158, 210);
+}
+table.table {
+  td, th {
+    &.centered {
+      text-align: center;
+    }
+  }
+}
+
 @include "bootstrap_less/bootstrap.less";
