@@ -1,51 +1,73 @@
-<table>
+<!-- Align input field labels to the right -->
+<style>
+	#pricing-model-settings tr td:nth-child(1),
+	#pricing-model-settings tr td:nth-child(4) {
+		text-align: right;
+		padding-right: 5px;
+	}
+</style>
+<table id="pricing-model-settings">
 	<tr>
-		<td>Name: </td><td><input name="name" type="text"/></td><td width="15px"></td><td>Phone #: </td><td><input name="phone" type="text" placeholder="(e.g. 1-555-123-4567)"/></td>
-	</tr>
-	<tr>
-		<td>IP Address: </td><td><input name="address" type="text" placeholder="(e.g. 192.168.1.1)"/></td><td width="15px"></td>
-		<td>Max Energy <i class="icon-info-sign"></i>: </td>
-		<td>
-			<div class="input-append">
-				<input name="maxEnergy" type="text" style="width:112px"/>
-				<span class="add-on">kWh</span>
-			</div>
-		</td>
-	</tr>
-	<tr>
-		<td>Status: </td><td><select name="status"><option value="varies">Varies</option><option value="on">On</option><option value="off">Off</option></select></td><td width="15px"></td>
-		<td>Max Power <i class="icon-info-sign"></i>: </td>
-		<td>
-			<div class="input-append">
-				<input name="maxPower" type="text" style="width:119px"/>
-				<span class="add-on">kW</span>
-			</div>
-		</td>
-	</tr>
-	<tr>
-		<td>Credit: </td>
+		<td>Name: </td><td><input name="name" type="text"/></td><td width="15px"></td>
+		<td>Base Line Rate: </td>
 		<td>
 			<div class="input-prepend">
 				<span class="add-on">$</span>
-				<input name="credit" type="text" style="width:123px"/>
+				<input name="baseLineRate" type="text" style="width:123px"/>
 			</div>
 		</td>
-	<td width="15px"></td><td>Warning Signals <i class="icon-info-sign"></i>: </td><td><input name="warningSignals" type="text"/></td>
 	</tr>
 	<tr>
-		<td>Pricing Model:</td>
+		<td>Power Low: </td>
 		<td>
-			<select name="pricingModel">
-				<option value="varies">Varies</option>
-				<?php
-					$pricingModels = json_decode(file_get_contents("data/pricingModels.json"), true);
-					foreach ($pricingModels as $pricingModel)
-						echo("<option value='" . $pricingModel["id"] . "'>" . $pricingModel["name"] . "</option>");
-				?>
-			</select>
+			<div class="input-append">
+				<input name="powerLow" type="text" style="width:112px"/>
+				<span class="add-on">kWh</span>
+			</div>
 		</td>
-		<td width="15px">
+		</td><td width="15px"></td>
+		<td>Power Low Mult: </td><td><input name="powerLowMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Power High: </td>
+		<td>
+			<div class="input-append">
+				<input name="powerhigh" type="text" style="width:112px"/>
+				<span class="add-on">kWh</span>
+			</div>
 		</td>
-		<td>Serial <i class="icon-info-sign"></i>: </td><td><input name="serial" type="text" placeholder="(e.g. 1424124-342)"/></td>
+		</td><td width="15px"></td>
+		<td>Power High Mult: </td><td><input name="powerHighMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Power Mid: </td>
+		<td>
+			<div class="input-append">
+				<input name="powerMid" type="text" style="width:112px"/>
+				<span class="add-on">kWh</span>
+			</div>
+		</td>
+		</td><td width="15px"></td>
+		<td>Energy Low Mult: </td><td><input name="energyLowMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Energy Threshold: </td>
+		<td>
+			<div class="input-append">
+				<input name="energyThreshold" type="text" style="width:119px"/>
+				<span class="add-on">kW</span>
+			</div>
+		</td>
+		</td><td width="15px"></td>
+		<td>Energy High Mult: </td><td><input name="energyHighMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Time Day Start: </td><td><input name="timeDayStart" type="text"/></td><td width="15px"></td>
+		<td>Day Mult: </td><td><input name="dayMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Time Night Start: </td><td><input name="timeNightStart" type="text"/></td><td width="15px"></td>
+		<td>Night Mult: </td><td><input name="nightMult" type="text"/></td>
+	</tr>
 	</tr>
 </table>

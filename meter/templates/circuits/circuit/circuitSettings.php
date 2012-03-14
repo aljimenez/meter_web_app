@@ -1,4 +1,12 @@
-<table>
+<!-- Align input field labels to the right -->
+<style>
+	#circuit-settings tr td:nth-child(1),
+	#circuit-settings tr td:nth-child(4) {
+		text-align: right;
+		padding-right: 5px;
+	}
+</style>
+<table id="circuit-settings">
 	<tr>
 		<td>Name: </td><td><input name="name" type="text"/></td><td width="15px"></td><td>Phone #: </td><td><input name="phone" type="text" placeholder="(e.g. 1-555-123-4567)"/></td>
 	</tr>

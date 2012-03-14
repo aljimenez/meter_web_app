@@ -73,19 +73,15 @@
 				<div id="headlinks"></div>
 				<div class="span2 offset4">
 					<table class="table table-bordered">
-						<tbody>
-							<tr>
-								<td>
-									<h4>&nbsp;<small>Meter Id: 123</small></h4>
-								</td>
-							</tr>
-						</tbody>
+						<tr><td id="meter_link">
+							<a  href="#meter" name="a4-21401">Meter a4-21401</a>
+						</td></tr>
 					</table>
 				</div>
 			</div>
 		</div>
         <div id="inner-wrap">
-        	<div id="content"></div>
+        	<div id="content"><?php include("templates/sms/smsPageTest.php")?></div>
 		</div>
 	</div>
 	
@@ -93,9 +89,10 @@
 	<?php include("templates/main.html")?>
 	<?php include("templates/circuits/circuitsPage.php")?>
 	<?php include("templates/pricingModels/pricingModelsPage.php")?>
+	<?php include("templates/sms/smsPage.php")?>
+	<?php include("templates/meter/meterPage.php")?>
 	
 	<!-- JavaScript -->
 	<script type="text/javascript" src="js/main.js"></script>
-	
 </body>
 </html>

@@ -1,13 +1,23 @@
-var headLinks = {"dashboard": {"title": "Meter Dashboard", "linkName": "Dashboard", "url": "", "page": "dashboard"},
-				 "circuits": {"title": "Circuits", "linkName": "Circuits", "url": "circuits", "page": "circuits"},
-				 "pricingModels": {"title": "Pricing Models", "linkName": "Pricing Models", "url": "pricingModels", "page": "pricingModels"},
-				 "log": {"title": "Log", "linkName": "Log", "url": "log", "page": "log"}};
+var headLinks = {"dashboard": {"title": "Meter Dashboard", "linkName": "Dashboard", "name": "dashboard", "url": ""},
+				 "circuits": {"title": "Circuits", "linkName": "Circuits", "name": "circuits", "url": "circuits"},
+				 "pricingModels": {"title": "Pricing Models", "linkName": "Pricing Models", "name": "pricingModels", "url": "pricingModels"},
+				 "sms": {"title": "SMS Messages", "linkName": "SMS", "name": "sms", "url": "sms"}};
 
 function changePage(page)
 {
-	$("#title").text(headLinks[page].title);
 	$("#headlinks a").removeClass("btn-primary");
-	$("#" + page + "_link").addClass("btn-primary");
+	$("#meter_link").css("background", "none");
+	
+	if (page == "Meter")
+		$("#meter_link").css("background", "#f5f5f5");
+	
+	if (headLinks[page])
+	{
+		$("#title").text(headLinks[page].title);
+		$("#headlinks a[name='" + headLinks[page].url + "']").addClass("btn-primary");		
+	}
+	else
+		$("#title").text(page);	
 }
 
 
@@ -35,7 +45,8 @@ var AppRouter = Backbone.Router.extend({
         "circuits/:id": "circuit",
         "pricingModels": "pricingModels",
         "pricingModels/:id": "pricingModel",
-        "log": "log"
+        "sms": "sms",
+        "meter": "meter"
     },
     initialize: function() {
     	this.headLinksView = new HeadLinksView();
@@ -44,6 +55,7 @@ var AppRouter = Backbone.Router.extend({
     
     dashboard: function () {
     	changePage("dashboard");
+    	//$('#content').html("");
     },
     
     circuitsPage: function() {
@@ -66,9 +78,15 @@ var AppRouter = Backbone.Router.extend({
     	$('#content').html(new PricingModelPageView().render(id).el);
     },
     
-    log: function() {
-    	changePage("log");
+    sms: function() {
+    	changePage("sms");
+    	$('#content').html(new SMSPageView().render().el);
     },
+    
+    meter: function() {
+    	changePage("Meter");
+    	$('#content').html(new MeterPageView().render().el);
+    }
 });
 
 var app = new AppRouter();
