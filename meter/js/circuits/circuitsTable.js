@@ -91,7 +91,7 @@ window.CircuitsTableView = Backbone.View.extend({
 				
 				// create data table
 				var circuitsDataTableDiv =  $("<div/>").hide();
-				var circuitsDataTable = $("<table id='circuits-datatable'/>").append(circuitsTreeTable.html()).addClass("table-bordered table-condensed");
+				var circuitsDataTable = $("<table id='circuits-datatable'/>").append(circuitsTreeTable.html()).addClass("table table-bordered table-condensed");
 				circuitsDataTableDiv.append(circuitsDataTable);
 				circuitsTreeTable.after(circuitsDataTableDiv);
 

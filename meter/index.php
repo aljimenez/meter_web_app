@@ -81,7 +81,7 @@
 			</div>
 		</div>
         <div id="inner-wrap">
-        	<div id="content"><?php include("templates/sms/smsPageTest.php")?></div>
+        	<div id="content"></div>
 		</div>
 	</div>
 	

@@ -9,7 +9,10 @@ function changePage(page)
 	$("#meter_link").css("background", "none");
 	
 	if (page == "Meter")
+	{	
 		$("#meter_link").css("background", "#f5f5f5");
+		$("#meter_link > a").blur();
+	}
 	
 	if (headLinks[page])
 	{

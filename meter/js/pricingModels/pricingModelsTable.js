@@ -27,7 +27,7 @@ window.PricingModelsTableBodyView = Backbone.View.extend({
 window.PricingModelsTableView = Backbone.View.extend({
 	tagName: "table",
 	initialize: function() {
-		$(this.el).addClass("table-bordered table-condensed");
+		$(this.el).addClass("table table-bordered table-condensed");
 	},
 	getPricingModels: function(callback) {
 		var table = this;
