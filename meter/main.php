@@ -91,6 +91,7 @@
 	<?php include("templates/pricingModels/pricingModelsPage.php")?>
 	<?php include("templates/sms/smsPage.php")?>
 	<?php include("templates/meter/meterPage.php")?>
+	<?php include("templates/dashboard/dashboardPage.php")?>
 	
 	<!-- JavaScript -->
 	<script type="text/javascript" src="js/main.js"></script>

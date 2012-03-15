@@ -58,7 +58,7 @@ var AppRouter = Backbone.Router.extend({
     
     dashboard: function () {
     	changePage("dashboard");
-    	//$('#content').html("");
+    	$('#content').html(new DashboardPageView().render().el)
     },
     
     circuitsPage: function() {

@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html style="background: white">
+<head>
+    <title>Meter Administration</title>
+
+    <style type="text/css">
+    body fieldset {
+    	padding: 10px;
+    	border: 2px solid #666;
+    	display: inline;
+    	border-radius: 5px;
+    }
+    
+    body fieldset input, body fieldset select {
+    	padding: 4px;
+    	font-size: 13px;
+    	margin-bottom: 4px;
+    	
+    }
+    
+    body fieldset table td div.input-append, body fieldset table td div.input-prepend{
+    	margin: 0px;
+    }
+    
+    body fieldset legend {
+    	margin-bottom: 0px;
+    	padding: 2px;
+    	width: auto;
+    	border: none;
+    	font-size: 16px;
+    }
+    
+    body .icon-info-sign {
+    	cursor: help;
+    }
+    
+    body input {
+    	width: 150px;
+    	height: 16px;
+    }
+    
+    body select {
+    	width: 160px;
+    }
+    
+    body div.input-append span.add-on, body div.input-prepend span.add-on {
+    	height: 16px;
+    }
+    </style>
+
+	<script type="text/javascript" src="js/lib/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/lib/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="js/lib/jquery-ui-1.8.18.custom.min.js"></script>
+    <script type="text/javascript" src="js/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="js/lib/backbone-min.js"></script>
+    
+    <link rel="stylesheet/less" type="text/css" href="css/styles.less" />
+    <script type="text/javascript" src="js/lib/less.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/jquery.dataTables/jquery.dataTables.css" type="text/css" />
+    <link rel="stylesheet" href="css/jquery.ui/jquery-ui-1.8.18.custom.css" type="text/css" /> 
+    
+</head>
+<body>
+	<div class="container">
+		<div id="head-row" class="page-header">
+			<h1 class="span8" style="margin:0px" id="title">Dashboard</h1>
+			<p class="span3 pull-right">
+			<div class="clearfix">&nbsp;</div>
+        </div>
+        <div>
+        	<div class="row">
+				<div id="headlinks"></div>
+				<div class="span2 offset4">
+					<table class="table table-bordered">
+						<tr><td id="meter_link">
+							<a  href="#meter" name="a4-21401">Meter a4-21401</a>
+						</td></tr>
+					</table>
+				</div>
+			</div>
+		</div>
+        <div id="inner-wrap">
+        	<div id="content"><style>
+	#filters {
+		margin-left: 0;
+	}
+	
+	#filters li {
+		line-height: 18px;
+	    margin-right: 10px;
+	    display: inline;
+	}
+	
+	#messages {
+		border: 1px solid;
+		border-radius: 5px;
+		padding: 3px 0 3px 0;
+		max-height: 375px;
+	    min-height: 200px;
+	    overflow-y: auto;
+	}
+	
+	#earlier-messages {
+		color: #0088CC;
+		cursor: pointer;
+		padding-left: 5px;
+		padding-top: 3px;
+	}
+	
+	#earlier-messages:hover {
+		color: #005580;
+		text-decoration: underline;
+		
+	}
+	
+	#messages .date {
+		background: #f3f3f3;
+		border-bottom: 1px solid;
+	    border-top: 1px solid;
+	    padding-left: 5px;
+	    margin-top: 5px;
+	    line-height: 22px;
+	    font-size: 14px;
+	    color: #222;
+	}
+	
+	.message {
+		padding-left: 5px;
+		margin-top: 3px;
+	}
+	
+	.message .time {
+		color: darkgrey;
+		font-size: 12px;
+	}
+	
+	.message .sender {
+		color: #224488;
+	}
+	
+	.message .receiver {
+		color: darkgreen;
+	}
+	
+	.message .text {
+		color: black;
+	}
+	
+</style>
+<ul id="filters">
+	<li>Display:</li>
+	<li><input type="checkbox"/> Sent Messages</li>
+	<li><input type="checkbox"/> Messages Received</li>
+</ul>
+<p>
+
+<div id="messages">
+	<div><span id="earlier-messages">&laquo; Show Earlier Messages</span></div>
+	<div class="date">March 4th, 2012</div>
+	<div class="message">
+		<span class="time">2:03:10</span>
+		<span class="sender">Meter:</span>
+		</span class="text">+CMGS: 118</span>
+	</div>
+	<div class="message">
+		<span class="time">2:03:10</span>
+		<span class="sender">Meter:</span>
+		</span class="text">+CMGS: 118</span>
+	</div>
+	<div class="message">
+		<span class="time">2:03:10</span>
+		<span class="sender">Meter:</span>
+		</span class="text">+CMGS: 118</span>
+	</div>
+	<div class="message">
+		<span class="time">2:03:10</span>
+		<span class="sender">Meter:</span>
+		</span class="text">+CMGS: 118</span>
+	</div>
+	<div class="date">March 4th, 2012</div>
+	<div class="message">
+		<span class="time">2:03:10</span>
+		<span class="sender">Meter:</span>
+		</span class="text">+CMGS: 118</span>
+	</div>
+	<div class="message">
+		<span class="time">2:03:10</span>
+		<span class="sender">Meter:</span>
+		</span class="text">+CMGS: 118</span>
+	</div>
+	<div class="message">
+		<span class="time">2:03:10</span>
+		<span class="sender">Meter:</span>
+		</span class="text">+CMGS: 118</span>
+	</div>
+	<div class="message">
+		<span class="time">2:03:10</span>
+		<span class="sender">Meter:</span>
+		</span class="text">+CMGS: 118</span>
+	</div>
+</div></div>
+		</div>
+	</div>
+	
+	<!-- Templates -->
+	<script type="text/template" id="headlink">
+	<a href="#<%= url %>" class="btn btn-large" name="<%= url %>"><%= linkName %></a>
+</script>	<script type="text/template" id="tpl-circuits-page">
+	<div class="pull-right clearfix" id="circuits-table-search">
+		<label class="pull-right" style="margin-bottom:0px">Search:</label>
+		<div class="clearfix"></div>
+		<input type="text" placeholder="Search for circuits"/>
+	</div>
+	<div id="circuits-table"></div>
+	<div class="clearfix"></div>
+	<div id="add-circuit-button">
+	<br>
+	<button class="btn" onclick="$('#add-circuit-button').hide();$('#add-circuit').show()">Add New Circuit</button>
+</div>
+
+<fieldset id="add-circuit" style="display:none">
+    <legend>Add New Circuit</legend>
+    <form id="add-circuit-form">
+		<!-- Align input field labels to the right -->
+<style>
+	#circuit-settings tr td:nth-child(1),
+	#circuit-settings tr td:nth-child(4) {
+		text-align: right;
+		padding-right: 5px;
+	}
+</style>
+<table id="circuit-settings">
+	<tr>
+		<td>Name: </td><td><input name="name" type="text"/></td><td width="15px"></td><td>Phone #: </td><td><input name="phone" type="text" placeholder="(e.g. 1-555-123-4567)"/></td>
+	</tr>
+	<tr>
+		<td>IP Address: </td><td><input name="address" type="text" placeholder="(e.g. 192.168.1.1)"/></td><td width="15px"></td>
+		<td>Max Energy <i class="icon-info-sign"></i>: </td>
+		<td>
+			<div class="input-append">
+				<input name="maxEnergy" type="text" style="width:112px"/>
+				<span class="add-on">kWh</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>Status: </td><td><select name="status"><option value="varies">Varies</option><option value="on">On</option><option value="off">Off</option></select></td><td width="15px"></td>
+		<td>Max Power <i class="icon-info-sign"></i>: </td>
+		<td>
+			<div class="input-append">
+				<input name="maxPower" type="text" style="width:119px"/>
+				<span class="add-on">kW</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>Credit: </td>
+		<td>
+			<div class="input-prepend">
+				<span class="add-on">$</span>
+				<input name="credit" type="text" style="width:123px"/>
+			</div>
+		</td>
+	<td width="15px"></td><td>Warning Signals <i class="icon-info-sign"></i>: </td><td><input name="warningSignals" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Pricing Model:</td>
+		<td>
+			<select name="pricingModel">
+				<option value="varies">Varies</option>
+				<option value='model1'>Model 1</option><option value='model2'>Model 2</option><option value='model3'>Model 3</option><option value='model4'>Model 4</option>			</select>
+		</td>
+		<td width="15px">
+		</td>
+		<td>Serial <i class="icon-info-sign"></i>: </td><td><input name="serial" type="text" placeholder="(e.g. 1424124-342)"/></td>
+	</tr>
+</table>
+		<div class="pull-right" style="margin-top:10px">
+			<button class="btn" onclick="$('#add-circuit-form').get(0).reset();$('#add-circuit').hide();$('#add-circuit-button').show();return false;">Cancel</button>
+			<button class="btn">Add Circuit</button>
+		</div>
+	</form>
+</fieldset>	<p>
+</script>
+
+<!-- Templates -->
+<style>
+#circuits-tree-table tbody td img {
+	margin-bottom: -5px;
+}
+
+#circuits-tree-table tbody td {
+	padding: 0px 10px;
+	vertical-align: middle;
+}
+
+#circuits-tree-table tbody td:FIRST-CHILD a {
+	position:relative;
+	top:-4px;
+}
+
+</style>
+
+<script type="text/template" id="tpl-circuits-table-head">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>IP Address</th>
+			<th>Status</th>
+			<th>Pricing Model</th>
+			<th>Credit Remaining</th>
+			<th>Load</th>
+			<th>Power Factor</th>
+			<th>Energy Used Today</th>
+			<th>Total Energy Used</th>
+		</tr>
+	</thead>
+</script>
+
+<script type="text/template" id="tpl-circuits-table-body-row">
+	<td nowrap style="vertical-align:middle;white-space-collapse: discard;">
+		<!--
+		<% _.each(lines, function(line, i) {
+			%>
+			--><img src="img/treeTable/<%= (i < lines.length-1) ? (line == 1 ? 'line' : 'spacer') : (line == 1 ? 'attach' : 'attach_end') %>.png"/><!--
+			<%
+		})%>--><!--
+		--><img name="toggle" src="img/treeTable/<%= toggle %>.png" style="padding-right:5px;cursor:<%= cursor %>"><!--
+		--><a href="#circuits/<%= id%>"><%= name %></a>
+	</td>
+	<td><%= type %></td>
+	<td><%= address %></td>
+	<td><%= status %></td>
+	<td><%= pricingModel %></td>
+	<td><%= credit %></td>
+	<td><%= load %></td>
+	<td><%= powerFactor %></td>
+	<td><%= energyToday %></td>
+	<td><%= energyTotal %></td>
+</script><script type="text/template" id="tpl-circuit-page">
+
+<!-- Navigation Breadcrumb -->
+<ul class="breadcrumb" style="padding:0px;background-image: none; background-color: white; border: none; padding-left:0px">
+	<li>
+		<a href="#circuits">Circuits</a><span class="divider">»</span>
+	</li>
+	<% _.each(ancestors , function(ancestor, i) {
+		%>
+			<li><a href="#circuits/<%= ancestor.id %>"><%= ancestor.name %></a><span class="divider">»</span>
+		<%
+	})%>
+	<li>
+		<span><%= name %></span>
+	</li>
+</ul>
+<h2><%= name %> - <%= type.substring(0, 1).toUpperCase() + type.substring(1) %>  Circuit</h2>
+
+<!-- Circuit Settings -->
+<fieldset>
+    <legend>Circuit Settings</legend>
+	<form id="circuit-settings-form">
+		<!-- Align input field labels to the right -->
+<style>
+	#circuit-settings tr td:nth-child(1),
+	#circuit-settings tr td:nth-child(4) {
+		text-align: right;
+		padding-right: 5px;
+	}
+</style>
+<table id="circuit-settings">
+	<tr>
+		<td>Name: </td><td><input name="name" type="text"/></td><td width="15px"></td><td>Phone #: </td><td><input name="phone" type="text" placeholder="(e.g. 1-555-123-4567)"/></td>
+	</tr>
+	<tr>
+		<td>IP Address: </td><td><input name="address" type="text" placeholder="(e.g. 192.168.1.1)"/></td><td width="15px"></td>
+		<td>Max Energy <i class="icon-info-sign"></i>: </td>
+		<td>
+			<div class="input-append">
+				<input name="maxEnergy" type="text" style="width:112px"/>
+				<span class="add-on">kWh</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>Status: </td><td><select name="status"><option value="varies">Varies</option><option value="on">On</option><option value="off">Off</option></select></td><td width="15px"></td>
+		<td>Max Power <i class="icon-info-sign"></i>: </td>
+		<td>
+			<div class="input-append">
+				<input name="maxPower" type="text" style="width:119px"/>
+				<span class="add-on">kW</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>Credit: </td>
+		<td>
+			<div class="input-prepend">
+				<span class="add-on">$</span>
+				<input name="credit" type="text" style="width:123px"/>
+			</div>
+		</td>
+	<td width="15px"></td><td>Warning Signals <i class="icon-info-sign"></i>: </td><td><input name="warningSignals" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Pricing Model:</td>
+		<td>
+			<select name="pricingModel">
+				<option value="varies">Varies</option>
+				<option value='model1'>Model 1</option><option value='model2'>Model 2</option><option value='model3'>Model 3</option><option value='model4'>Model 4</option>			</select>
+		</td>
+		<td width="15px">
+		</td>
+		<td>Serial <i class="icon-info-sign"></i>: </td><td><input name="serial" type="text" placeholder="(e.g. 1424124-342)"/></td>
+	</tr>
+</table>
+		<button class="btn pull-right" style="margin-top:10px">Edit Circuit</button>
+	</form>
+</fieldset>
+<br>
+
+<!--  Sub-circuit -->
+<fieldset>
+	<legend>Sub-circuits</legend>
+	<div style="height:100px">
+		<style>
+			ul.connectedSortable {
+				min-width: 120px;
+				min-height: 90px;
+				margin: 0 0 10px 0;
+				list-style-type: none;
+				float: left;
+			}
+			ul.connectedSortable li {
+				padding: 2px;
+				margin: 2px;
+				font-weight: bold;
+			}
+			ul.connectedSortable li.ui-state-default a,
+			ul.connectedSortable li.ui-state-highlight a {
+				color: #0088CC
+			}
+			ul.connectedSortable li.ui-state-default a:hover,
+			ul.connectedSortable li.ui-state-highlight a:hover {
+				color: #005580;
+			}
+		</style>
+		
+		<div style="display:inline;float:left;">
+			Sub-circuits:
+			<br>
+			<div style="border: 1px solid;padding:4px;border-radius:5px;height:100px;overflow-y:scroll;overflow-x:hidden">
+				<ul id="sub-circuits" class="connectedSortable">
+				</ul>
+			</div>
+		</div>
+		<span id="edit-available-circuits">
+		<div id="move-icons" style="margin-top:60px;margin-left:10px; margin-right:10px;visibility:hidden;float:left"><i class="icon-arrow-left"></i><i class="icon-arrow-right"></i></div>
+		
+		<div style="display:inline;float:left;">
+			Available Circuits:
+			<br>
+			<div style="border: 1px solid;padding:4px;border-radius:5px;height:100px;overflow-y:scroll;overflow-x:hidden">
+				<ul id="available-circuits" class="connectedSortable">
+					<li class='ui-state-highlight' circuitId='A'><a href='#circuits/A'>A</a></li><li class='ui-state-highlight' circuitId='B'><a href='#circuits/B'>B</a></li><li class='ui-state-highlight' circuitId='D'><a href='#circuits/D'>D</a></li><li class='ui-state-highlight' circuitId='E'><a href='#circuits/E'>E</a></li>				</ul>
+			</div>
+		</div>
+		<div style="margin-top:55px;margin-left:10px;float:left;display:inline">
+			<span id="cancel-save-edit-sub-circuits" style="display:none">
+				<button class="btn" id="cancel-edit-sub-circuits-button" onclick="cancelEditSubCircuits()">Cancel</button>
+				<button class="btn" id="save-edit-sub-circuits-button" onclick="cancelEditSubCircuits()">Save</button>
+			</span>
+			<button class="btn" id="edit-sub-circuits-button" onclick="editSubCircuits()">Edit Sub-circuits</button>
+		</div>
+		</span>
+	</div>
+	<div class="clearfix"></div>
+</fieldset>
+<br>
+
+<!--  Add New Circuit -->
+<div id="add-circuit-button">
+	<br>
+	<button class="btn" onclick="$('#add-circuit-button').hide();$('#add-circuit').show()">Add New Circuit</button>
+</div>
+
+<fieldset id="add-circuit" style="display:none">
+    <legend>Add New Circuit</legend>
+    <form id="add-circuit-form">
+		<!-- Align input field labels to the right -->
+<style>
+	#circuit-settings tr td:nth-child(1),
+	#circuit-settings tr td:nth-child(4) {
+		text-align: right;
+		padding-right: 5px;
+	}
+</style>
+<table id="circuit-settings">
+	<tr>
+		<td>Name: </td><td><input name="name" type="text"/></td><td width="15px"></td><td>Phone #: </td><td><input name="phone" type="text" placeholder="(e.g. 1-555-123-4567)"/></td>
+	</tr>
+	<tr>
+		<td>IP Address: </td><td><input name="address" type="text" placeholder="(e.g. 192.168.1.1)"/></td><td width="15px"></td>
+		<td>Max Energy <i class="icon-info-sign"></i>: </td>
+		<td>
+			<div class="input-append">
+				<input name="maxEnergy" type="text" style="width:112px"/>
+				<span class="add-on">kWh</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>Status: </td><td><select name="status"><option value="varies">Varies</option><option value="on">On</option><option value="off">Off</option></select></td><td width="15px"></td>
+		<td>Max Power <i class="icon-info-sign"></i>: </td>
+		<td>
+			<div class="input-append">
+				<input name="maxPower" type="text" style="width:119px"/>
+				<span class="add-on">kW</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>Credit: </td>
+		<td>
+			<div class="input-prepend">
+				<span class="add-on">$</span>
+				<input name="credit" type="text" style="width:123px"/>
+			</div>
+		</td>
+	<td width="15px"></td><td>Warning Signals <i class="icon-info-sign"></i>: </td><td><input name="warningSignals" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Pricing Model:</td>
+		<td>
+			<select name="pricingModel">
+				<option value="varies">Varies</option>
+				<option value='model1'>Model 1</option><option value='model2'>Model 2</option><option value='model3'>Model 3</option><option value='model4'>Model 4</option>			</select>
+		</td>
+		<td width="15px">
+		</td>
+		<td>Serial <i class="icon-info-sign"></i>: </td><td><input name="serial" type="text" placeholder="(e.g. 1424124-342)"/></td>
+	</tr>
+</table>
+		<div class="pull-right" style="margin-top:10px">
+			<button class="btn" onclick="$('#add-circuit-form').get(0).reset();$('#add-circuit').hide();$('#add-circuit-button').show();return false;">Cancel</button>
+			<button class="btn">Add Circuit</button>
+		</div>
+	</form>
+</fieldset>
+<p>
+<div class="form-actions">
+	<h4 class="">Caution</h4>
+	<button class="btn btn-danger pull-right ">Remove Circuit</button>
+	<div class="clearfix"></div>
+</div>
+</script>
+
+<!-- Templates -->
+
+<!-- JavaScript -->
+<script type="text/javascript" src="js/circuits/circuit/circuitPage.js"></script>
+<!-- JavaScript -->
+<script type="text/javascript" src="js/circuits/circuitsTable.js"></script>
+<script type="text/javascript" src="js/circuits/circuitsPage.js"></script>	<script type="text/template" id="tpl-pricing-models-page">
+	<div id="pricing-models-table" class="clearfix"></div>
+	<div id="add-pricing-model-button">
+		<br>
+		<button class="btn" onclick="$('#add-pricing-model-button').hide();$('#add-pricing-model').show()">Add New Pricing Model</button>
+	</div>
+	<fieldset id="add-pricing-model" style="display:none">
+	    <legend>Add New Pricing Model</legend>
+	    <form id="add-pricing-model-form">
+			<!-- Align input field labels to the right -->
+<style>
+	#pricing-model-settings tr td:nth-child(1),
+	#pricing-model-settings tr td:nth-child(4) {
+		text-align: right;
+		padding-right: 5px;
+	}
+</style>
+<table id="pricing-model-settings">
+	<tr>
+		<td>Name: </td><td><input name="name" type="text"/></td><td width="15px"></td>
+		<td>Base Line Rate: </td>
+		<td>
+			<div class="input-prepend">
+				<span class="add-on">$</span>
+				<input name="baseLineRate" type="text" style="width:123px"/>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>Power Low: </td>
+		<td>
+			<div class="input-append">
+				<input name="powerLow" type="text" style="width:112px"/>
+				<span class="add-on">kWh</span>
+			</div>
+		</td>
+		</td><td width="15px"></td>
+		<td>Power Low Mult: </td><td><input name="powerLowMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Power High: </td>
+		<td>
+			<div class="input-append">
+				<input name="powerhigh" type="text" style="width:112px"/>
+				<span class="add-on">kWh</span>
+			</div>
+		</td>
+		</td><td width="15px"></td>
+		<td>Power High Mult: </td><td><input name="powerHighMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Power Mid: </td>
+		<td>
+			<div class="input-append">
+				<input name="powerMid" type="text" style="width:112px"/>
+				<span class="add-on">kWh</span>
+			</div>
+		</td>
+		</td><td width="15px"></td>
+		<td>Energy Low Mult: </td><td><input name="energyLowMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Energy Threshold: </td>
+		<td>
+			<div class="input-append">
+				<input name="energyThreshold" type="text" style="width:119px"/>
+				<span class="add-on">kW</span>
+			</div>
+		</td>
+		</td><td width="15px"></td>
+		<td>Energy High Mult: </td><td><input name="energyHighMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Time Day Start: </td><td><input name="timeDayStart" type="text"/></td><td width="15px"></td>
+		<td>Day Mult: </td><td><input name="dayMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Time Night Start: </td><td><input name="timeNightStart" type="text"/></td><td width="15px"></td>
+		<td>Night Mult: </td><td><input name="nightMult" type="text"/></td>
+	</tr>
+	</tr>
+</table>			<div class="pull-right" style="margin-top:10px">
+				<button class="btn" onclick="$('#add-pricing-model-form').get(0).reset();$('#add-pricing-model').hide();$('#add-pricing-model-button').show();return false;">Cancel</button>
+				<button class="btn">Add Pricing Model</button>
+			</div>
+		</form>
+	</fieldset>
+	<p>
+</script>
+
+<!-- Templates -->
+<script type="text/template" id="tpl-pricing-models-table-head">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Baseline Rate</th>
+			<th>Day Multiplier</th>
+			<th>Energy Threshold</th>
+			<th>Night Multiplier</th>
+			<th>Power Low</th>
+			<th>Power High</th>
+			<th>Time Day Start</th>
+			<th>Time Night Start</th>
+		</tr>
+	</thead>
+</script>
+
+<script type="text/template" id="tpl-pricing-models-table-body-row">
+	<td nowrap><a href="#pricingModels/<%= id %>"><%= name %></a></td>
+	<td><%= baselineRate %></td>
+	<td><%= dayMultiplier %></td>
+	<td><%= energyThreshold %></td>
+	<td><%= nightMultiplier %></td>
+	<td><%= powerLow %></td>
+	<td><%= powerHigh %></td>
+	<td><%= timeDayStart %></td>
+	<td><%= timeNightStart %></td>
+</script><script type="text/template" id="tpl-pricing-model-page">
+
+<!-- Navigation Breadcrumb -->
+<ul class="breadcrumb" style="padding:0px;background-image: none; background-color: white; border: none; padding-left:0px">
+	<li>
+		<a href="#pricingModels">Pricing Models</a><span class="divider">»</span>
+	</li>
+	<li>
+		<span><%= name %></span>
+	</li>
+</ul>
+<h2><%= name %></h2>
+
+<!-- Pricing Model Settings -->
+<fieldset>
+    <legend>Pricing Model Settings</legend>
+	<form id="pricing-model-settings-form">
+		<!-- Align input field labels to the right -->
+<style>
+	#pricing-model-settings tr td:nth-child(1),
+	#pricing-model-settings tr td:nth-child(4) {
+		text-align: right;
+		padding-right: 5px;
+	}
+</style>
+<table id="pricing-model-settings">
+	<tr>
+		<td>Name: </td><td><input name="name" type="text"/></td><td width="15px"></td>
+		<td>Base Line Rate: </td>
+		<td>
+			<div class="input-prepend">
+				<span class="add-on">$</span>
+				<input name="baseLineRate" type="text" style="width:123px"/>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>Power Low: </td>
+		<td>
+			<div class="input-append">
+				<input name="powerLow" type="text" style="width:112px"/>
+				<span class="add-on">kWh</span>
+			</div>
+		</td>
+		</td><td width="15px"></td>
+		<td>Power Low Mult: </td><td><input name="powerLowMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Power High: </td>
+		<td>
+			<div class="input-append">
+				<input name="powerhigh" type="text" style="width:112px"/>
+				<span class="add-on">kWh</span>
+			</div>
+		</td>
+		</td><td width="15px"></td>
+		<td>Power High Mult: </td><td><input name="powerHighMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Power Mid: </td>
+		<td>
+			<div class="input-append">
+				<input name="powerMid" type="text" style="width:112px"/>
+				<span class="add-on">kWh</span>
+			</div>
+		</td>
+		</td><td width="15px"></td>
+		<td>Energy Low Mult: </td><td><input name="energyLowMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Energy Threshold: </td>
+		<td>
+			<div class="input-append">
+				<input name="energyThreshold" type="text" style="width:119px"/>
+				<span class="add-on">kW</span>
+			</div>
+		</td>
+		</td><td width="15px"></td>
+		<td>Energy High Mult: </td><td><input name="energyHighMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Time Day Start: </td><td><input name="timeDayStart" type="text"/></td><td width="15px"></td>
+		<td>Day Mult: </td><td><input name="dayMult" type="text"/></td>
+	</tr>
+	<tr>
+		<td>Time Night Start: </td><td><input name="timeNightStart" type="text"/></td><td width="15px"></td>
+		<td>Night Mult: </td><td><input name="nightMult" type="text"/></td>
+	</tr>
+	</tr>
+</table>		<button class="btn pull-right" style="margin-top:10px">Edit Pricing Model</button>
+	</form>
+</fieldset>
+<p>
+<div class="form-actions">
+	<h4 class="">Caution</h4>
+	<button class="btn btn-danger pull-right ">Remove Pricing Model</button>
+	<div class="clearfix"></div>
+</div>
+</script>
+
+<!-- Templates -->
+
+<!-- JavaScript -->
+<script type="text/javascript" src="js/pricingModels/pricingModel/pricingModelPage.js"></script>
+<!-- JavaScript -->
+<script type="text/javascript" src="js/pricingModels/pricingModelsPage.js"></script>
+<script type="text/javascript" src="js/pricingModels/pricingModelsTable.js"></script>	<script type="text/template" id="tpl-sms-page">
+<style>
+	#filters {
+		margin-left: 0;
+	}
+	
+	#filters li {
+		line-height: 18px;
+	    margin-right: 10px;
+	    display: inline;
+	}
+	
+	#messages {
+		border: 1px solid;
+		border-radius: 5px;
+		padding: 3px 0 3px 0;
+		max-height: 375px;
+	    min-height: 200px;
+	    overflow-y: auto;
+	}
+	
+	#earlier-messages {
+		color: #0088CC;
+		cursor: pointer;
+		padding-left: 5px;
+		padding-top: 3px;
+	}
+	
+	#earlier-messages:hover {
+		color: #005580;
+		text-decoration: underline;
+		
+	}
+	
+	#messages .date {
+		background: #f3f3f3;
+		border-bottom: 1px solid;
+	    border-top: 1px solid;
+	    padding-left: 5px;
+	    margin-top: 5px;
+	    line-height: 22px;
+	    font-size: 14px;
+	    color: #222;
+	}
+	
+	.message {
+		padding-left: 5px;
+		margin-top: 3px;
+	}
+	
+	.message .time {
+		color: darkgrey;
+		font-size: 12px;
+	}
+	
+	.message .sender {
+		color: #224488;
+	}
+	
+	.message .receiver {
+		color: darkgreen;
+	}
+	
+	.message .text {
+		color: black;
+	}
+	
+</style>
+<ul id="filters">
+	<li>Display:</li>
+	<li><input type="checkbox"/> Sent Messages</li>
+	<li><input type="checkbox"/> Messages Received</li>
+</ul>
+<p>
+
+<div id="messages">
+	<span id="earlier-messages">&laquo; Show Earlier Messages</span>
+</div>
+</script>
+
+<!-- Templates -->
+<script type="text/template" id="tpl-message">
+	<span class="time">{%= time}</span>
+	<span class="{%= type}">{%= time}:</span>
+	</span class="text">{%= message}</span>
+</script>
+
+<!-- JavaScript -->
+<script type="text/javascript" src="js/sms/smsPage.js"></script>	<script type="text/template" id="tpl-meter-page">
+<h2>a4-21401</h2>
+
+<!-- Align input field labels to the right -->
+<style>
+	#meter-settings tr td:nth-child(1),
+	#meter-settings tr td:nth-child(4) {
+		text-align: right;
+		padding-right: 5px;
+	}
+</style>
+<!-- Meter Settings -->
+<fieldset>
+    <legend>Meter Settings</legend>
+	<form id="circuit-settings-form">
+		<table id="meter-settings">
+			<tr>
+				<td>Name: </td><td><input name="name" type="text"/></td><td width="15px"></td>
+				<td>Mode: </td><td><input name="mode" type="text"/></td>
+			</tr>
+			<tr>
+				<td>IP Address: </td><td><input name="address" type="text" placeholder="(e.g. 192.168.1.1)"/></td><td width="15px"></td>
+				<td>Latitude: </td><td><input name="latitude" type="text"/></td>
+			</tr>
+			<tr>
+				<td>PPPD Peer: </td><td><input name="pppdPeer" type="text"/></td><td width="15px"></td>
+				<td>Longitude: </td><td><input name="longitude" type="text"/></td>
+			</tr>
+			<tr>
+				<td>Credit Threshold: </td>
+				<td>
+					<div class="input-prepend">
+						<span class="add-on">$</span>
+						<input name="creditThreshold" type="text" style="width:123px"/>
+					</div>
+				</td>
+				<td width="15px"></td>
+				<td>Gateway: </td><td><input name="gateway" type="text"/></td>
+			</tr>
+			<tr>
+				<td>Logs Home: </td><td><input name="logsHome" type="text"/></td><td width="15px"></td>
+				<td>Gateway Job Request Freq: </td><td><input name="gatewayJobRequestFreq" type="text"/></td>
+			</tr>
+			<tr>
+				<td>Persist Update Time: </td><td><input name="persistUpdateTime" type="text"/></td><td width="15px"></td>
+				<td>Component Failure Check Freq: </td><td><input name="componentFailureCheckFreq" type="text"/></td>
+			</tr>
+			<tr>
+				<td>Cache Time: </td><td><input name="cacheTime" type="text"/></td><td width="15px"></td>
+				<td>Primary Parameter Trans Freq: </td><td><input name="primaryParamTransFreq" type="text"/></td>
+			</tr>
+		</table>
+		<button class="btn pull-right" style="margin-top:10px">Update Meter</button>
+	</form>
+</fieldset>
+<br>
+</script>
+
+<!-- Templates -->
+
+<!-- JavaScript -->
+<script type="text/javascript" src="js/meter/meterPage.js"></script>	<!-- Templates -->
+<script type="text/template" id="tpl-dashboard">
+<div class="span5">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td></td>
+        <th class="centered">
+          Today
+        </th>
+        <th class="centered">
+          Average
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>
+          Energy input
+        </th>
+        <td class="centered">
+          <span class="e-in cur">100</span>
+        </td>
+        <td class="centered">
+          <span class="e-in avg">56</span>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Energy output
+        </th>
+        <td class="centered">
+          <span class="e-out cur">96</span>
+        </td>
+        <td class="centered">
+          <span class="e-out avg">50</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="span6">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>
+          Circuits Active:
+        </th>
+        <td class="centered">
+          <span class="circuits-active">8</span>
+        </td>
+        <td>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>
+          Circuits Total:
+        </th>
+        <td class="centered">
+          <span class="circuits-total">12</span>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="3">
+        </th>
+      </tr>
+      <tr>
+        <th>
+          Latest Sync:
+        </th>
+        <td class="centered">
+          <span class="latest-sync">2 hours ago</span>
+        </td>
+        <td>
+          <span class="latest-sync-threshold">
+            (max 12 hours)
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Latest SMS:
+        </th>
+        <td class="centered">
+          <span class="latest-sms">20 minutes ago</span>
+        </td>
+        <td>
+          <span class="latest-sms-id">
+            800.555.1212
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</script>
+
+<!-- JavaScript -->
+<script type="text/javascript" src="js/dashboard/dashboardPage.js"></script>	
+	<!-- JavaScript -->
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
