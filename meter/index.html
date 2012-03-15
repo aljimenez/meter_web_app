@@ -74,138 +74,20 @@
 				<div class="span2 offset4">
 					<table class="table table-bordered">
 						<tr><td id="meter_link">
-							<a  href="#meter" name="a4-21401">Meter a4-21401</a>
+							<a  href="#meter">Meter a4-21401</a>
 						</td></tr>
 					</table>
 				</div>
 			</div>
 		</div>
         <div id="inner-wrap">
-        	<div id="content"><style>
-	#filters {
-		margin-left: 0;
-	}
-	
-	#filters li {
-		line-height: 18px;
-	    margin-right: 10px;
-	    display: inline;
-	}
-	
-	#messages {
-		border: 1px solid;
-		border-radius: 5px;
-		padding: 3px 0 3px 0;
-		max-height: 375px;
-	    min-height: 200px;
-	    overflow-y: auto;
-	}
-	
-	#earlier-messages {
-		color: #0088CC;
-		cursor: pointer;
-		padding-left: 5px;
-		padding-top: 3px;
-	}
-	
-	#earlier-messages:hover {
-		color: #005580;
-		text-decoration: underline;
-		
-	}
-	
-	#messages .date {
-		background: #f3f3f3;
-		border-bottom: 1px solid;
-	    border-top: 1px solid;
-	    padding-left: 5px;
-	    margin-top: 5px;
-	    line-height: 22px;
-	    font-size: 14px;
-	    color: #222;
-	}
-	
-	.message {
-		padding-left: 5px;
-		margin-top: 3px;
-	}
-	
-	.message .time {
-		color: darkgrey;
-		font-size: 12px;
-	}
-	
-	.message .sender {
-		color: #224488;
-	}
-	
-	.message .receiver {
-		color: darkgreen;
-	}
-	
-	.message .text {
-		color: black;
-	}
-	
-</style>
-<ul id="filters">
-	<li>Display:</li>
-	<li><input type="checkbox"/> Sent Messages</li>
-	<li><input type="checkbox"/> Messages Received</li>
-</ul>
-<p>
-
-<div id="messages">
-	<div><span id="earlier-messages">&laquo; Show Earlier Messages</span></div>
-	<div class="date">March 4th, 2012</div>
-	<div class="message">
-		<span class="time">2:03:10</span>
-		<span class="sender">Meter:</span>
-		</span class="text">+CMGS: 118</span>
-	</div>
-	<div class="message">
-		<span class="time">2:03:10</span>
-		<span class="sender">Meter:</span>
-		</span class="text">+CMGS: 118</span>
-	</div>
-	<div class="message">
-		<span class="time">2:03:10</span>
-		<span class="sender">Meter:</span>
-		</span class="text">+CMGS: 118</span>
-	</div>
-	<div class="message">
-		<span class="time">2:03:10</span>
-		<span class="sender">Meter:</span>
-		</span class="text">+CMGS: 118</span>
-	</div>
-	<div class="date">March 4th, 2012</div>
-	<div class="message">
-		<span class="time">2:03:10</span>
-		<span class="sender">Meter:</span>
-		</span class="text">+CMGS: 118</span>
-	</div>
-	<div class="message">
-		<span class="time">2:03:10</span>
-		<span class="sender">Meter:</span>
-		</span class="text">+CMGS: 118</span>
-	</div>
-	<div class="message">
-		<span class="time">2:03:10</span>
-		<span class="sender">Meter:</span>
-		</span class="text">+CMGS: 118</span>
-	</div>
-	<div class="message">
-		<span class="time">2:03:10</span>
-		<span class="sender">Meter:</span>
-		</span class="text">+CMGS: 118</span>
-	</div>
-</div></div>
+        	<div id="content"></div>
 		</div>
 	</div>
 	
 	<!-- Templates -->
 	<script type="text/template" id="headlink">
-	<a href="#<%= url %>" class="btn btn-large" name="<%= url %>"><%= linkName %></a>
+	<a href="#<%= url %>" class="btn btn-large" name="<%= linkName %>"><%= linkName %></a>
 </script>	<script type="text/template" id="tpl-circuits-page">
 	<div class="pull-right clearfix" id="circuits-table-search">
 		<label class="pull-right" style="margin-bottom:0px">Search:</label>
@@ -277,8 +159,8 @@
 	</tr>
 </table>
 		<div class="pull-right" style="margin-top:10px">
-			<button class="btn" onclick="$('#add-circuit-form').get(0).reset();$('#add-circuit').hide();$('#add-circuit-button').show();return false;">Cancel</button>
-			<button class="btn">Add Circuit</button>
+			<button class="btn" onclick="cancelAddNewCircuit();return false;">Cancel</button>
+			<button class="btn" onclick="addNewCircuit();return false;">Add Circuit</button>
 		</div>
 	</form>
 </fieldset>	<p>
@@ -333,7 +215,13 @@
 	<td><%= type %></td>
 	<td><%= address %></td>
 	<td><%= status %></td>
-	<td><%= pricingModel %></td>
+	<td>
+		<% if (pricingModelId != "varies") { %>
+			<a href="#pricingModels/<%= pricingModelId %>"><%= pricingModelName %></a>
+		<%	} else { %>
+			Varies
+		<% } %>
+	</td>
 	<td><%= credit %></td>
 	<td><%= load %></td>
 	<td><%= powerFactor %></td>
@@ -415,7 +303,7 @@
 		<td>Serial <i class="icon-info-sign"></i>: </td><td><input name="serial" type="text" placeholder="(e.g. 1424124-342)"/></td>
 	</tr>
 </table>
-		<button class="btn pull-right" style="margin-top:10px">Edit Circuit</button>
+		<button class="btn pull-right" style="margin-top:10px" onclick="editCircuit('<%= id %>');return false;">Edit Circuit</button>
 	</form>
 </fieldset>
 <br>
@@ -469,7 +357,7 @@
 		<div style="margin-top:55px;margin-left:10px;float:left;display:inline">
 			<span id="cancel-save-edit-sub-circuits" style="display:none">
 				<button class="btn" id="cancel-edit-sub-circuits-button" onclick="cancelEditSubCircuits()">Cancel</button>
-				<button class="btn" id="save-edit-sub-circuits-button" onclick="cancelEditSubCircuits()">Save</button>
+				<button class="btn" id="save-edit-sub-circuits-button" onclick="saveEditSubCircuits()">Save</button>
 			</span>
 			<button class="btn" id="edit-sub-circuits-button" onclick="editSubCircuits()">Edit Sub-circuits</button>
 		</div>
@@ -543,15 +431,15 @@
 	</tr>
 </table>
 		<div class="pull-right" style="margin-top:10px">
-			<button class="btn" onclick="$('#add-circuit-form').get(0).reset();$('#add-circuit').hide();$('#add-circuit-button').show();return false;">Cancel</button>
-			<button class="btn">Add Circuit</button>
+			<button class="btn" onclick="cancelAddNewCircuit();return false;">Cancel</button>
+			<button class="btn" onclick="addNewCircuit();return false;">Add Circuit</button>
 		</div>
 	</form>
 </fieldset>
 <p>
 <div class="form-actions">
 	<h4 class="">Caution</h4>
-	<button class="btn btn-danger pull-right ">Remove Circuit</button>
+	<button class="btn btn-danger pull-right" onclick="removeCircuit('<%= id %>')">Remove Circuit</button>
 	<div class="clearfix"></div>
 </div>
 </script>
@@ -559,10 +447,13 @@
 <!-- Templates -->
 
 <!-- JavaScript -->
+<script type="text/javascript" src="js/circuits/circuit/circuit.js"></script>
 <script type="text/javascript" src="js/circuits/circuit/circuitPage.js"></script>
 <!-- JavaScript -->
+<script type="text/javascript" src="js/circuits/circuits.js"></script>
+<script type="text/javascript" src="js/circuits/circuitsPage.js"></script>
 <script type="text/javascript" src="js/circuits/circuitsTable.js"></script>
-<script type="text/javascript" src="js/circuits/circuitsPage.js"></script>	<script type="text/template" id="tpl-pricing-models-page">
+	<script type="text/template" id="tpl-pricing-models-page">
 	<div id="pricing-models-table" class="clearfix"></div>
 	<div id="add-pricing-model-button">
 		<br>
@@ -644,8 +535,8 @@
 	</tr>
 	</tr>
 </table>			<div class="pull-right" style="margin-top:10px">
-				<button class="btn" onclick="$('#add-pricing-model-form').get(0).reset();$('#add-pricing-model').hide();$('#add-pricing-model-button').show();return false;">Cancel</button>
-				<button class="btn">Add Pricing Model</button>
+				<button class="btn" onclick="cancelAddPricingModel();return false;">Cancel</button>
+				<button class="btn" onclick="addPricingModel();return false;">Add Pricing Model</button>
 			</div>
 		</form>
 	</fieldset>
@@ -768,13 +659,13 @@
 		<td>Night Mult: </td><td><input name="nightMult" type="text"/></td>
 	</tr>
 	</tr>
-</table>		<button class="btn pull-right" style="margin-top:10px">Edit Pricing Model</button>
+</table>		<button class="btn pull-right" style="margin-top:10px" onclick="editPricingModel('<%= id %>');return false">Edit Pricing Model</button>
 	</form>
 </fieldset>
 <p>
 <div class="form-actions">
 	<h4 class="">Caution</h4>
-	<button class="btn btn-danger pull-right ">Remove Pricing Model</button>
+	<button class="btn btn-danger pull-right" onclick="removePricingModel('<%= id %>')">Remove Pricing Model</button>
 	<div class="clearfix"></div>
 </div>
 </script>
@@ -782,8 +673,10 @@
 <!-- Templates -->
 
 <!-- JavaScript -->
+<script type="text/javascript" src="js/pricingModels/pricingModel/pricingModel.js"></script>
 <script type="text/javascript" src="js/pricingModels/pricingModel/pricingModelPage.js"></script>
 <!-- JavaScript -->
+<script type="text/javascript" src="js/pricingModels/pricingModels.js"></script>
 <script type="text/javascript" src="js/pricingModels/pricingModelsPage.js"></script>
 <script type="text/javascript" src="js/pricingModels/pricingModelsTable.js"></script>	<script type="text/template" id="tpl-sms-page">
 <style>
@@ -796,9 +689,14 @@
 	    margin-right: 10px;
 	    display: inline;
 	}
+
+	#filters li input {
+		margin-top: 0px;
+		margin-bottom: 2px;
+	}
 	
 	#messages {
-		border: 1px solid;
+		border: 1px solid darkgrey;
 		border-radius: 5px;
 		padding: 3px 0 3px 0;
 		max-height: 375px;
@@ -821,13 +719,18 @@
 	
 	#messages .date {
 		background: #f3f3f3;
-		border-bottom: 1px solid;
-	    border-top: 1px solid;
+		border-bottom: 1px solid #DDDDDD;
+	    border-top: 1px solid #DDDDDD;
 	    padding-left: 5px;
 	    margin-top: 5px;
 	    line-height: 22px;
 	    font-size: 14px;
 	    color: #222;
+		cursor: pointer;
+	}
+
+	#messages .date:hover {
+		color: #224488;
 	}
 	
 	.message {
@@ -844,7 +747,7 @@
 		color: #224488;
 	}
 	
-	.message .receiver {
+	.message .recipiant {
 		color: darkgreen;
 	}
 	
@@ -855,26 +758,64 @@
 </style>
 <ul id="filters">
 	<li>Display:</li>
-	<li><input type="checkbox"/> Sent Messages</li>
-	<li><input type="checkbox"/> Messages Received</li>
+	<li><input type="checkbox" checked name="sent" onchange="filterMessages()"/> Sent Messages</li>
+	<li><input type="checkbox" checked name="received" onchange="filterMessages()"/> Messages Received</li>
+	<li><input type="checkbox" checked name="meter" onchange="filterMessages()"/> Meter Messages</li>
+	<li><input type="checkbox" checked name="user" onchange="filterMessages()"/> User Messages</li>
 </ul>
 <p>
 
-<div id="messages">
-	<span id="earlier-messages">&laquo; Show Earlier Messages</span>
-</div>
+
 </script>
 
 <!-- Templates -->
-<script type="text/template" id="tpl-message">
-	<span class="time">{%= time}</span>
-	<span class="{%= type}">{%= time}:</span>
-	</span class="text">{%= message}</span>
+<script type="text/template" id="tpl-sms-message">
+	<span class="time"><%= time %></span>
+	<span class="<%= (recipiant == 'Self' ? 'sender' : 'recipiant') %>"><%= (recipiant == 'Self' ? sender : "To " + recipiant) %>:</span>
+	</span class="text"><%= message %></span>
 </script>
 
+
+<script type="text/template" id="tpl-sms-messages">
+	<span id="earlier-messages">&laquo; Show Earlier Messages</span>
+	<% _.each(messageGroups, function(messageGroup, i)
+	{
+	%>
+		<div class="date" onclick="$('#<%= messageGroup.id %>-date-group').toggle();$('#<%= messageGroup.id %>-toggle i').toggle();">
+			<span id='<%= messageGroup.id %>-toggle'>
+				<i class="icon-chevron-down" style="display:none"></i>
+				<i class="icon-chevron-right"></i>
+			</span>
+			<%= messageGroup.date %></div>
+		<div id="<%= messageGroup.id %>-date-group" style="display:none">
+	<%
+		for (var i in messageGroup.messages)
+		{
+			var message = messageGroup.messages[i];
+		%> 
+			<div class='message' sender="<%= message.sender %>" recipiant="<%= message.recipiant %>" filtered='false'>
+				<span class="time"><%= message.time %></span>
+				<span class="<%= (message.recipiant == 'Self' ? 'sender' : 'recipiant') %>">
+					<%= (message.recipiant == 'Self' ? message.sender : "To " + message.recipiant) %>:
+				</span>
+				</span class="text"><%= message.message %></span>
+			</div>
+	<%	} %>
+		</div>
+	<% }) %>
+</script>
+
+<script type="text/template" id="tpl-earlier-messages">
+	<span id="earlier-messages" onclick="showEarlierMessages()">&laquo; Show Earlier Messages</span>
+</script>
+
+
+
 <!-- JavaScript -->
-<script type="text/javascript" src="js/sms/smsPage.js"></script>	<script type="text/template" id="tpl-meter-page">
-<h2>a4-21401</h2>
+<script type="text/javascript" src="js/sms/sms.js"></script>
+<script type="text/javascript" src="js/sms/smsPage.js"></script>
+<script type="text/javascript" src="js/sms/smsMessages.js"></script>	<script type="text/template" id="tpl-meter-page">
+<h2><%= name %></h2>
 
 <!-- Align input field labels to the right -->
 <style>
@@ -890,42 +831,42 @@
 	<form id="circuit-settings-form">
 		<table id="meter-settings">
 			<tr>
-				<td>Name: </td><td><input name="name" type="text"/></td><td width="15px"></td>
-				<td>Mode: </td><td><input name="mode" type="text"/></td>
+				<td>Name: </td><td><input name="name" type="text" value="<%= name %>"/></td><td width="15px"></td>
+				<td>Mode: </td><td><input name="mode" type="text" value="<%= mode %>"/></td>
 			</tr>
 			<tr>
-				<td>IP Address: </td><td><input name="address" type="text" placeholder="(e.g. 192.168.1.1)"/></td><td width="15px"></td>
-				<td>Latitude: </td><td><input name="latitude" type="text"/></td>
+				<td>IP Address: </td><td><input name="address" type="text" value="<%= address %>" placeholder="(e.g. 192.168.1.1)"/></td><td width="15px"></td>
+				<td>Latitude: </td><td><input name="latitude" type="text" value="<%= latitude %>"/></td>
 			</tr>
 			<tr>
-				<td>PPPD Peer: </td><td><input name="pppdPeer" type="text"/></td><td width="15px"></td>
-				<td>Longitude: </td><td><input name="longitude" type="text"/></td>
+				<td>PPPD Peer: </td><td><input name="pppdPeer" type="text" value="<%= pppdPeer %>"/></td><td width="15px"></td>
+				<td>Longitude: </td><td><input name="longitude" type="text" value="<%= longitude %>"/></td>
 			</tr>
 			<tr>
 				<td>Credit Threshold: </td>
 				<td>
 					<div class="input-prepend">
 						<span class="add-on">$</span>
-						<input name="creditThreshold" type="text" style="width:123px"/>
+						<input name="creditThreshold" type="text" value="<%= creditThreshold %>" style="width:123px"/>
 					</div>
 				</td>
 				<td width="15px"></td>
-				<td>Gateway: </td><td><input name="gateway" type="text"/></td>
+				<td>Gateway: </td><td><input name="gateway" type="text" value="<%= gateway %>"/></td>
 			</tr>
 			<tr>
-				<td>Logs Home: </td><td><input name="logsHome" type="text"/></td><td width="15px"></td>
-				<td>Gateway Job Request Freq: </td><td><input name="gatewayJobRequestFreq" type="text"/></td>
+				<td>Logs Home: </td><td><input name="logsHome" type="text" value="<%= logsHome %>"/></td><td width="15px"></td>
+				<td>Gateway Job Request Freq: </td><td><input name="gatewayJobRequestFreq" type="text" value="<%= gatewayJobRequestFreq %>"/></td>
 			</tr>
 			<tr>
-				<td>Persist Update Time: </td><td><input name="persistUpdateTime" type="text"/></td><td width="15px"></td>
-				<td>Component Failure Check Freq: </td><td><input name="componentFailureCheckFreq" type="text"/></td>
+				<td>Persist Update Time: </td><td><input name="persistUpdateTime" type="text" value="<%= persistUpdateTime %>"/></td><td width="15px"></td>
+				<td>Component Failure Check Freq: </td><td><input name="componentFailureCheckFreq" type="text" value="<%= componentFailureCheckFreq %>"/></td>
 			</tr>
 			<tr>
-				<td>Cache Time: </td><td><input name="cacheTime" type="text"/></td><td width="15px"></td>
-				<td>Primary Parameter Trans Freq: </td><td><input name="primaryParamTransFreq" type="text"/></td>
+				<td>Cache Time: </td><td><input name="cacheTime" type="text" value="<%= cacheTime %>"/></td><td width="15px"></td>
+				<td>Primary Parameter Trans Freq: </td><td><input name="primaryParamTransFreq" type="text" value="<%= primaryParamTransFreq %>"/></td>
 			</tr>
 		</table>
-		<button class="btn pull-right" style="margin-top:10px">Update Meter</button>
+		<button class="btn pull-right" style="margin-top:10px" onclick="updateMeter();return false;">Update Meter</button>
 	</form>
 </fieldset>
 <br>
@@ -934,10 +875,70 @@
 <!-- Templates -->
 
 <!-- JavaScript -->
+<script type="text/javascript" src="js/meter/meter.js"></script>
 <script type="text/javascript" src="js/meter/meterPage.js"></script>	<!-- Templates -->
-<script type="text/template" id="tpl-dashboard">
+<script type="text/template" id="tpl-dashboard-page">
+<br>
+<div class="span6" style="margin-left:0">
+  <table class="table table-bordered" style="border:2px solid #66aac0">
+    <thead>
+      <tr>
+        <th>
+          Circuits Active:
+        </th>
+        <td class="centered">
+          <a href="#circuits"><span class="circuits-active"><%= circuitsActive %></span></a>
+        </td>
+        <td>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>
+          Circuits Total:
+        </th>
+        <td class="centered">
+          <a href="#circuits"><span class="circuits-total"><%= circuitsTotal %></span></a>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="3">
+        </th>
+      </tr>
+      <tr>
+        <th>
+          Latest Sync:
+        </th>
+        <td class="centered">
+          <span class="latest-sync"><%= latestSync %></span>
+        </td>
+        <td>
+          <span class="latest-sync-threshold">
+            (max 12 hours)
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Latest SMS:
+        </th>
+        <td class="centered">
+          <span class="latest-sms"><%= latestSMSTime %></span>
+        </td>
+        <td>
+          <span class="latest-sms-id">
+            <a href="#sms"><%= latestSMSSender %></a>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <div class="span5">
-  <table class="table table-bordered">
+  <table class="table table-bordered" style="border:2px solid #66aac0">
     <thead>
       <tr>
         <td></td>
@@ -952,82 +953,24 @@
     <tbody>
       <tr>
         <th>
-          Energy input
+          Energy input (kW)
         </th>
         <td class="centered">
-          <span class="e-in cur">100</span>
+          <span class="e-in cur"><%= energyInput %></span>
         </td>
         <td class="centered">
-          <span class="e-in avg">56</span>
+          <span class="e-in avg"><%= energyInputAvg %></span>
         </td>
       </tr>
       <tr>
         <th>
-          Energy output
+          Energy output (kW)
         </th>
         <td class="centered">
-          <span class="e-out cur">96</span>
+          <span class="e-out cur"><%= energyOutput %></span>
         </td>
         <td class="centered">
-          <span class="e-out avg">50</span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="span6">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>
-          Circuits Active:
-        </th>
-        <td class="centered">
-          <span class="circuits-active">8</span>
-        </td>
-        <td>
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>
-          Circuits Total:
-        </th>
-        <td class="centered">
-          <span class="circuits-total">12</span>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <th colspan="3">
-        </th>
-      </tr>
-      <tr>
-        <th>
-          Latest Sync:
-        </th>
-        <td class="centered">
-          <span class="latest-sync">2 hours ago</span>
-        </td>
-        <td>
-          <span class="latest-sync-threshold">
-            (max 12 hours)
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <th>
-          Latest SMS:
-        </th>
-        <td class="centered">
-          <span class="latest-sms">20 minutes ago</span>
-        </td>
-        <td>
-          <span class="latest-sms-id">
-            800.555.1212
-          </span>
+          <span class="e-out avg"><%= energyOutputAvg %></span>
         </td>
       </tr>
     </tbody>
