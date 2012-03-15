@@ -1,0 +1,13 @@
+{
+	"energyInput": 15,
+	"energyInputAvg": 10.1,
+	"energyOutput": 96,
+	"energyOutputAvg": 97.5,
+	
+	"circuitsActive": 8,
+	"circuitsTotal": 12,
+	
+	"latestSync": "2 hours ago",
+	"latestSMSTime": "20 minutes ago",
+	"latestSMSSender": "555-123-4567" 
+}

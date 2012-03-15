@@ -46,7 +46,13 @@
 	<td><%= type %></td>
 	<td><%= address %></td>
 	<td><%= status %></td>
-	<td><%= pricingModel %></td>
+	<td>
+		<% if (pricingModelId != "varies") { %>
+			<a href="#pricingModels/<%= pricingModelId %>"><%= pricingModelName %></a>
+		<%	} else { %>
+			Varies
+		<% } %>
+	</td>
 	<td><%= credit %></td>
 	<td><%= load %></td>
 	<td><%= powerFactor %></td>

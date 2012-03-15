@@ -15,5 +15,6 @@
 <?php include("templates/circuits/circuit/circuitPage.php")?>
 
 <!-- JavaScript -->
-<script type="text/javascript" src="js/circuits/circuitsTable.js"></script>
+<script type="text/javascript" src="js/circuits/circuits.js"></script>
 <script type="text/javascript" src="js/circuits/circuitsPage.js"></script>
+<script type="text/javascript" src="js/circuits/circuitsTable.js"></script>

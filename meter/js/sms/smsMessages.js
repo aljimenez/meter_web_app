@@ -13,14 +13,18 @@ window.SMSMessagesView = Backbone.View.extend({
 		$(this.el).attr("id", "messages");
 	},
 	render: function (eventName) {
+		console.log("Rendering sms messages view");
 		window.smsCollection = new SMSModels();
 		self = this;
 		this.model = window.smsCollection;
+		console.log("Fetching sms messages collection");
 		window.smsCollection.fetch({
 			success: function() {
 				var date = null;
+				// contains an array of message group objects (a group of messages with same date)
 				var messageGroups = [];
 				var messageGroup = null;
+				// iterate through each message
 				_.each(self.model.models, function (smsMessage) {
 					smsMessage = smsMessage.toJSON();
 					if (smsMessage.date != date)
@@ -28,16 +32,14 @@ window.SMSMessagesView = Backbone.View.extend({
 						date = smsMessage.date;
 						var newDate = new Date(date);
 						var newDateStr = MONTHS[newDate.getMonth()] + " " + (newDate.getDate() + 1) + ", " + newDate.getFullYear();
+						// a group of messages with the same date
 						messageGroup = {};
 						messageGroup.id = date;
 						messageGroup.date = newDateStr;
 						messageGroup.messages = [];
 						messageGroups.push(messageGroup);
-						//$(self.el).append($("<div/>").addClass("date").html(newDateStr));
 					}
-						
 					messageGroup.messages.push(smsMessage);
-		            //$(self.el).append(new SMSMessageView({model:smsMessage}).render().el);
 		        }, self);
 				$(self.el).append(self.template({messageGroups: messageGroups}));
 				// show last date group
@@ -47,38 +49,3 @@ window.SMSMessagesView = Backbone.View.extend({
         return this;
     }
 });
-
-function filterMessages()
-{
-	var sent = $("#filters input[name='sent']").is(":checked");
-	var received = $("#filters input[name='received']").is(":checked");
-	var meter = $("#filters input[name='meter']").is(":checked");
-	var user = $("#filters input[name='user']").is(":checked");
-	
-	// show all messages
-	$("#messages .message").show().attr("filtered", false);
-			
-	// hide messages according to filters
-	$("#messages .message").each(function() {
-		var message = $(this);
-		var sender = message.attr("sender");
-		var recipiant = message.attr("recipiant");
-		if (!sent && sender == "Self")
-			message.hide().attr("filtered", true);
-		if (!received && sender != "Self")
-			message.hide().attr("filtered", true);
-		if (!meter && (sender == "Meter" || recipiant == "Meter"))
-			message.hide().attr("filtered", true);
-		if (!user && (sender == "Self" && recipiant != "Meter" || sender != "Meter" && recipiant == "Self"))
-			message.hide().attr("filtered", true);
-	});
-	
-	// hide date group if no messages for that date
-	$("#messages .date").each(function() {
-		// hide if all children are filtered out
-		if ($(this).next().children("[class='message'][filtered=false]").length == 0)
-			$(this).hide();
-		else
-			$(this).show();
-	});
-}

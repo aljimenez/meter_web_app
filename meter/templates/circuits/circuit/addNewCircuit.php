@@ -8,8 +8,8 @@
     <form id="add-circuit-form">
 		<?php include("templates/circuits/circuit/circuitSettings.php")?>
 		<div class="pull-right" style="margin-top:10px">
-			<button class="btn" onclick="$('#add-circuit-form').get(0).reset();$('#add-circuit').hide();$('#add-circuit-button').show();return false;">Cancel</button>
-			<button class="btn">Add Circuit</button>
+			<button class="btn" onclick="cancelAddNewCircuit();return false;">Cancel</button>
+			<button class="btn" onclick="addNewCircuit();return false;">Add Circuit</button>
 		</div>
 	</form>
 </fieldset>

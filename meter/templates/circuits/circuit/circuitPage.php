@@ -21,7 +21,7 @@
     <legend>Circuit Settings</legend>
 	<form id="circuit-settings-form">
 		<?php include("templates/circuits/circuit/circuitSettings.php")?>
-		<button class="btn pull-right" style="margin-top:10px">Edit Circuit</button>
+		<button class="btn pull-right" style="margin-top:10px" onclick="editCircuit('<%= id %>');return false;">Edit Circuit</button>
 	</form>
 </fieldset>
 <br>
@@ -83,7 +83,7 @@
 		<div style="margin-top:55px;margin-left:10px;float:left;display:inline">
 			<span id="cancel-save-edit-sub-circuits" style="display:none">
 				<button class="btn" id="cancel-edit-sub-circuits-button" onclick="cancelEditSubCircuits()">Cancel</button>
-				<button class="btn" id="save-edit-sub-circuits-button" onclick="cancelEditSubCircuits()">Save</button>
+				<button class="btn" id="save-edit-sub-circuits-button" onclick="saveEditSubCircuits()">Save</button>
 			</span>
 			<button class="btn" id="edit-sub-circuits-button" onclick="editSubCircuits()">Edit Sub-circuits</button>
 		</div>
@@ -99,7 +99,7 @@
 <p>
 <div class="form-actions">
 	<h4 class="">Caution</h4>
-	<button class="btn btn-danger pull-right ">Remove Circuit</button>
+	<button class="btn btn-danger pull-right" onclick="removeCircuit('<%= id %>')">Remove Circuit</button>
 	<div class="clearfix"></div>
 </div>
 </script>
@@ -107,4 +107,5 @@
 <!-- Templates -->
 
 <!-- JavaScript -->
+<script type="text/javascript" src="js/circuits/circuit/circuit.js"></script>
 <script type="text/javascript" src="js/circuits/circuit/circuitPage.js"></script>

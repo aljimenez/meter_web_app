@@ -74,7 +74,7 @@
 				<div class="span2 offset4">
 					<table class="table table-bordered">
 						<tr><td id="meter_link">
-							<a  href="#meter" name="a4-21401">Meter a4-21401</a>
+							<a  href="#meter">Meter <?php include("data/meter/getMeterAttribute.php"); echo(getMeterAttribute("name")); ?></a>
 						</td></tr>
 					</table>
 				</div>

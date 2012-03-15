@@ -126,11 +126,12 @@
 </script>
 
 <script type="text/template" id="tpl-earlier-messages">
-	<span id="earlier-messages">&laquo; Show Earlier Messages</span>
+	<span id="earlier-messages" onclick="showEarlierMessages()">&laquo; Show Earlier Messages</span>
 </script>
 
 
 
 <!-- JavaScript -->
+<script type="text/javascript" src="js/sms/sms.js"></script>
 <script type="text/javascript" src="js/sms/smsPage.js"></script>
 <script type="text/javascript" src="js/sms/smsMessages.js"></script>

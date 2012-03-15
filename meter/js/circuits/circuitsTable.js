@@ -81,15 +81,19 @@ window.CircuitsTableView = Backbone.View.extend({
 		$(this.el).addClass("table table-bordered table-condensed dataTable").attr("id", "circuits-tree-table");
 	},
 	render: function() {
+		console.log("Rendering circuits table view");
 		$(this.el).append(_.template($("#tpl-circuits-table-head").html()));
-		var circuitsTree = new CircuitsTree();
+		window.circuitsTree = new CircuitsTree();
+		// the tree version of the table
 		var circuitsTreeTable = $(this.el);
+		console.log("Fetching circuits tree");
 		circuitsTree.fetch({
 			success: function() {
 				var circuitsTableBody = new CircuitsTableBodyView({model:circuitsTree});
 				circuitsTreeTable.append(circuitsTableBody.render().el);
 				
 				// create data table
+				// the data table of the table
 				var circuitsDataTableDiv =  $("<div/>").hide();
 				var circuitsDataTable = $("<table id='circuits-datatable'/>").append(circuitsTreeTable.html()).addClass("table table-bordered table-condensed");
 				circuitsDataTableDiv.append(circuitsDataTable);
@@ -103,16 +107,11 @@ window.CircuitsTableView = Backbone.View.extend({
 				
 				circuitsDataTable.dataTable({
 		        	"iDisplayLength": 10,		// begin with a table of up to 10 rows
-		            "bServerSide": false,		// use server side data
-		            "bProcessing": false,		// show processing div when sending request to server
 		            "bDeferRender": true,		// save time when drawing table
-		    		"aoColumnDefs": [{"bSortable": true, "aTargets": [0]}],  // the following columns are sortable
 		            "oLanguage": {
-		            	"sInfoFiltered": "", // dont show how many sessions where filtered due to the limit
-		            	"sInfo": "Showing _START_ to _END_ "
+		            	"sInfo": "Showing _START_ to _END_ of _TOTAL_"
 		            }
 		    	});
-				
 				
 				// show datatable when searching, and hide tree table
 				$("#circuits-table-search input").keydown(function(e){
@@ -136,7 +135,7 @@ window.CircuitsTableView = Backbone.View.extend({
 					setTimeout(function(){
 						if ($("#circuits-datatable_filter input").val() == "")
 						{
-							$("#circuits-table-search").show()
+							$("#circuits-table-search").show();
 							$("#circuits-table-search input").focus();
 							circuitsDataTableDiv.hide();
 							circuitsTreeTable.show();

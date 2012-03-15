@@ -9,8 +9,8 @@
 	    <form id="add-pricing-model-form">
 			<?php include("templates/pricingModels/pricingModel/pricingModelSettings.php")?>
 			<div class="pull-right" style="margin-top:10px">
-				<button class="btn" onclick="$('#add-pricing-model-form').get(0).reset();$('#add-pricing-model').hide();$('#add-pricing-model-button').show();return false;">Cancel</button>
-				<button class="btn">Add Pricing Model</button>
+				<button class="btn" onclick="cancelAddPricingModel();return false;">Cancel</button>
+				<button class="btn" onclick="addPricingModel();return false;">Add Pricing Model</button>
 			</div>
 		</form>
 	</fieldset>
@@ -22,5 +22,6 @@
 <?php include("templates/pricingModels/pricingModel/pricingModelPage.php")?>
 
 <!-- JavaScript -->
+<script type="text/javascript" src="js/pricingModels/pricingModels.js"></script>
 <script type="text/javascript" src="js/pricingModels/pricingModelsPage.js"></script>
 <script type="text/javascript" src="js/pricingModels/pricingModelsTable.js"></script>

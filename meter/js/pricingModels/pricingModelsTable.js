@@ -33,6 +33,7 @@ window.PricingModelsTableView = Backbone.View.extend({
 		var table = this;
 		
 		window.pricingModelsCollection = new PricingModels();
+		console.log("Fetching pricing models collection");
 		window.pricingModelsCollection.fetch({
 			success: function() {
 				table.drawPricingModelsTable(table);
@@ -40,16 +41,10 @@ window.PricingModelsTableView = Backbone.View.extend({
 		});
 	},
 	render: function(eventName) {
+		console.log("Rendering pricing models table view");
 		$(this.el).append(_.template($('#tpl-pricing-models-table-head').html()));
-		//var table = this;
 		
-		// get pricing models if they havent been retrieved
-		//if (!window.pricingModelsCollection)
-			this.getPricingModels();
-		//else
-			//this.drawPricingModelsTable(table);
-			
-			
+		this.getPricingModels();
 		return this;
 	},
 	drawPricingModelsTable: function(table) {

@@ -1,0 +1,16 @@
+{
+	"name": "a4-21401",
+	"mode": "SMS",
+	"address": "192.168.1.101",
+	"latitude": 40.809457,
+	"longitude":-73.960133,
+	"pppdPeer": "tmobile",
+	"logsHome": "/mnt/ssmeter/logs/MeterLog",
+	"creditThreshold": "50.0",
+	"gateway": "3473529231",
+	"gatewayJobRequestFreq": 10,
+	"componentFailureCheckFreq": 14400,
+	"primaryParamTransFreq": 3600,
+	"cacheTime": 10,
+	"persistUpdateTime": 10
+}
