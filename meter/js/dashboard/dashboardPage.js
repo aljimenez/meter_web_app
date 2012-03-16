@@ -1,5 +1,5 @@
 window.Dashboard = Backbone.Model.extend({
-	urlRoot: "data/dashboard/dashboard.json"
+	url: urls.dashboard
 });
 
 window.DashboardPageView = Backbone.View.extend({

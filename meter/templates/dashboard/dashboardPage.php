@@ -3,7 +3,7 @@
 <br>
 <div class="span6" style="margin-left:0">
   <table class="table table-bordered" style="border:2px solid #66aac0">
-    <thead>
+    <tbody>
       <tr>
         <th>
           Circuits Active:
@@ -14,8 +14,6 @@
         <td>
         </td>
       </tr>
-    </thead>
-    <tbody>
       <tr>
         <th>
           Circuits Total:

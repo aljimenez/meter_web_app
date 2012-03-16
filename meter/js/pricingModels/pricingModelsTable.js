@@ -2,7 +2,7 @@ window.PricingModel = Backbone.Model.extend();
 
 window.PricingModels = Backbone.Collection.extend({
 	model: PricingModel,
-    url: "data/pricingModels/pricingModels.json"
+    url: urls.pricingModels
 });
 
 window.PricingModelsTableBodyRowView = Backbone.View.extend({

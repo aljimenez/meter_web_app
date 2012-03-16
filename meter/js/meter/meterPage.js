@@ -1,5 +1,5 @@
 window.Meter = Backbone.Model.extend({
-	urlRoot: "data/meter/meter.json"
+	url: urls.meter
 });
 
 window.MeterPageView = Backbone.View.extend({

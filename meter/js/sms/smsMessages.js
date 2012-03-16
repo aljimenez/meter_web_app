@@ -2,7 +2,7 @@ window.SMSModel = Backbone.Model.extend();
 
 window.SMSModels = Backbone.Collection.extend({
 	model: SMSModel,
-    url: "data/sms/smsMessages.json"
+    url: urls.smsMessages
 });
 
 var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novemeber", "December"];

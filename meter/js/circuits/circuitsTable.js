@@ -1,5 +1,5 @@
 window.CircuitsTree = Backbone.Model.extend({
-    url: "data/circuits/circuitsTree.json"
+    url: urls.circuitsTree
 });
 
 window.CircuitsTableBodyRowView = Backbone.View.extend({
