@@ -65,17 +65,20 @@
 		<div id="move-icons" style="margin-top:60px;margin-left:10px; margin-right:10px;visibility:hidden;float:left"><i class="icon-arrow-left"></i><i class="icon-arrow-right"></i></div>
 		
 		<div style="display:inline;float:left;">
-			Available Circuits:
+			Available Circuits <i class="icon-info-sign"></i>: 
 			<br>
 			<div style="border: 1px solid;padding:4px;border-radius:5px;height:100px;overflow-y:scroll;overflow-x:hidden">
 				<ul id="available-circuits" class="connectedSortable">
 					<?php
 						$rootCircuit = json_decode(file_get_contents("data/circuits/circuitsTree.json"), true);
 						
-						// return circuits directly under root
+						// return leaf circuits directly under root
 						$availableCircuits = array();
 						foreach ($rootCircuit["children"] as $availableCircuit)
-							echo("<li class='ui-state-highlight' circuitId='" . $availableCircuit["id"] . "'><a href='#circuits/" . $availableCircuit["id"] . "'>" . $availableCircuit["name"] . "</a></li>");
+						{
+							if (count($availableCircuit["children"]) == 0)
+								echo("<li class='ui-state-highlight' circuitId='" . $availableCircuit["id"] . "'><a href='#circuits/" . $availableCircuit["id"] . "'>" . $availableCircuit["name"] . "</a></li>");
+						}
 					?>
 				</ul>
 			</div>
